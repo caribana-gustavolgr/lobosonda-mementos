@@ -1,0 +1,285 @@
+.app-login-fallback {
+  /* Minimal fallbacks in case Tailwind isn't applied */
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.app-login-size {
+  width: 375px;
+  height: 836px;
+}
+
+/* Component typography tweaks to better match Figma */
+.font-bebas {
+  font-family: var(--font-bebas);
+}
+
+.title-large {
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: 0.22px;
+  color: #222222;
+}
+
+.muted-small {
+  color: #090909;
+  font-size: 12px;
+}
+
+.link-blue {
+  color: #3983da;
+}
+
+.cta-button {
+  background: #222222;
+  color: #ffffff;
+  border-radius: 8px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-bebas);
+  font-size: 22px;
+}
+
+/* Layout styles to mirror Figma (non-tailwind fallback) */
+.login-root {
+  width: 375px;
+  height: 836px;
+  margin: 0 auto;
+  position: relative;
+  background: #ffffff;
+  overflow: visible;
+  padding: 24px 0 0 0; /* leave top space for header/logo */
+}
+
+.login-card {
+  /* tokens moved to :root CSS variables in src/styles.scss */
+  .log-in_2284-337 {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 375px;
+    height: 836px;
+  }
+  .log-in_2284-338 {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #ffffff;
+    width: 375px;
+    height: 836px;
+  }
+  .button-take-me-to-photos-photos_2284-339 {
+    top: 685px;
+    left: 24px;
+    position: absolute;
+    display: flex;
+    box-sizing: border-box;
+    width: 327px;
+    height: 60px;
+  }
+  .rectangle-69_2284-340 {
+    top: 0px;
+    left: -4px;
+    position: absolute;
+    display: flex;
+    display: flex;
+  }
+
+  .text-label_2284-341 {
+    top: 18px;
+    left: 134px;
+    position: absolute;
+    display: flex;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: Bebas Neue;
+    line-height: 28px;
+    letter-spacing: 0%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: center;
+    text-wrap: nowrap;
+    width: 58px;
+    height: 28px;
+  }
+
+  .text-register-to-relive-your-experience-with-us_2284-342 {
+    top: 150px;
+    left: 20px;
+    position: absolute;
+    display: flex;
+    color: #222222;
+    font-size: 22px;
+    font-family: Bebas Neue;
+    line-height: 22px;
+    letter-spacing: 1%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: left;
+    width: 302px;
+    height: 25px;
+  }
+
+  .email_2284-343 {
+    top: 265px;
+    left: 20px;
+    position: absolute;
+    display: flex;
+    width: 336px;
+    height: 72px;
+  }
+  .rectangle-84_2284-344 {
+    display: flex;
+  }
+
+  .text-email_2284-345 {
+    color: #090909;
+    font-size: 12px;
+    font-family: IBM Plex Mono;
+    line-height: 24px;
+    letter-spacing: 1%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: left;
+    width: 336px;
+    height: 10px;
+  }
+
+  .social-media_2284-346 {
+    top: 386px;
+    left: 19px;
+    position: absolute;
+    display: flex;
+    width: 336px;
+    height: 10px;
+  }
+  .text-email_2284-347 {
+    color: #090909;
+    font-size: 12px;
+    font-family: IBM Plex Mono;
+    line-height: 24px;
+    letter-spacing: 1%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: left;
+    width: 336px;
+    height: 10px;
+  }
+
+  .social-media_2284-348 {
+    top: 441px;
+    left: 64px;
+    position: absolute;
+    display: flex;
+    width: 291px;
+    height: 10px;
+  }
+  .text-email_2284-349 {
+    color: #090909;
+    font-size: 14px;
+    font-family: Montserrat;
+    line-height: 24px;
+    letter-spacing: 1%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: left;
+    width: 291px;
+    height: 10px;
+  }
+
+  .social-media_2284-350 {
+    top: 481px;
+    left: 64px;
+    position: absolute;
+    display: flex;
+    width: 291px;
+    height: 10px;
+  }
+  .text-email_2284-351 {
+    color: #3983da;
+    font-size: 14px;
+    font-family: Montserrat;
+    line-height: 24px;
+    letter-spacing: 1%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: left;
+    width: 291px;
+    height: 10px;
+  }
+
+  .social-media_2284-352 {
+    top: 759px;
+    left: 19px;
+    position: absolute;
+    display: flex;
+    width: 336px;
+    height: 10px;
+  }
+  .text-email_2284-353 {
+    color: #3983da;
+    font-size: 12px;
+    font-family: IBM Plex Mono;
+    line-height: 24px;
+    letter-spacing: 1%;
+    text-decoration: none;
+    font-weight: 400;
+    text-align: center;
+    width: 336px;
+    height: 10px;
+  }
+
+  .facebook_2284-354 {
+    top: 474px;
+    left: 26px;
+    position: absolute;
+    display: flex;
+    width: 24px;
+    height: 24px;
+  }
+
+  .instagram_2284-355 {
+    top: 434px;
+    left: 26px;
+    position: absolute;
+    display: flex;
+    width: 24px;
+    height: 24px;
+  }
+
+  .image-2_2284-356 {
+    top: 10px;
+    left: 116px;
+    position: absolute;
+    display: flex;
+    display: flex;
+  }
+
+  /* small helper for the actual input placed on top of the visual rectangle */
+  .input-email {
+    position: relative;
+    width: 100%;
+    height: 46px;
+    border: none;
+    padding: 8px 12px;
+    background: transparent;
+    box-sizing: border-box;
+  }
+
+  .sr-only {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+}

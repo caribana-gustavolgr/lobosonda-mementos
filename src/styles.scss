@@ -1,1 +1,26 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/fonts/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens / font variables */
+:root {
+	--font-bebas: 'Bebas Neue', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	--font-ibm: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
+	--font-mont: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Design tokens (migrated from src/app/tokens.scss) */
+:root {
+  --collection-1-color: #f7fafc;
+  --collection-1-item-counter: 12px;
+  --collection-1-selected-phot-counter: 18px;
+}
+
+/* Helper font classes used by the generated component markup */
+.font-bebas { font-family: var(--font-bebas); }
+.font-ibm { font-family: var(--font-ibm); }
+.font-mont { font-family: var(--font-mont); }
+
+/* You can add other global styles here */

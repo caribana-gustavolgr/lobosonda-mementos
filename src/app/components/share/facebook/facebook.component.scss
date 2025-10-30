@@ -1,0 +1,17 @@
+/* tokens moved to :root CSS variables in src/styles.scss */
+
+.root {
+  position: relative;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+.brandsFacebook {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: flex;
+  box-sizing: border-box;
+  background: #ffffff;
+  width: 40px;
+  height: 40px;
+}

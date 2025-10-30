@@ -1,0 +1,76 @@
+<div class="log-in_2284-337">
+  <div class="log-in_2284-338">
+    <!-- CTA button (visual) -->
+    <div class="button-take-me-to-photos-photos_2284-339">
+      <div class="rectangle-69_2284-340">
+        <!-- visual backplate kept from the export -->
+        <svg
+          width="336"
+          height="60"
+          viewBox="0 0 336 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 0.5H328C332.142 0.5 335.5 3.85787 335.5 8V52C335.5 56.1421 332.142 59.5 328 59.5H8C3.85787 59.5 0.5 56.1421 0.5 52V8C0.5 3.85786 3.85786 0.5 8 0.5Z"
+            fill="#222222"
+            stroke="#222222"
+          />
+        </svg>
+      </div>
+      <!-- real submit button wired to the reactive form -->
+      <button type="button" class="text-label_2284-341" (click)="submit()" [disabled]="submissionInProgress">
+        {{ submissionInProgress ? 'Sending…' : 'Let’s Go' }}
+      </button>
+    </div>
+
+    <span class="text-register-to-relive-your-experience-with-us_2284-342">Register to RELIVE Your Experience With US</span>
+
+    <!-- Form: we keep the reactive form logic and render an input where the export had a rectangle -->
+    <form [formGroup]="form" (ngSubmit)="submit()" class="email_2284-343">
+      <div class="rectangle-84_2284-344">
+        <!-- visual rectangle kept as background (SVG) -->
+        <svg width="336" height="46" viewBox="0 0 336 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.25" y="0.25" width="335.5" height="45.5" stroke="black" stroke-width="0.5" />
+        </svg>
+      </div>
+      <!-- Accessible input placed over the visual rectangle -->
+      <label for="email" class="sr-only">Email</label>
+      <input id="email" type="email" formControlName="email" class="text-email_2284-345 input-email" placeholder="Email" />
+    </form>
+
+    <div class="social-media_2284-346">
+      <span class="text-email_2284-347">Let’s connect to your social media</span>
+    </div>
+    <div class="social-media_2284-348">
+      <span class="text-email_2284-349">@Benigno_Lucrécio</span>
+    </div>
+    <div class="social-media_2284-350">
+      <span class="text-email_2284-351">Connect to Facebook</span>
+    </div>
+    <div class="social-media_2284-352">
+      <span class="text-email_2284-353">Privacy Policy</span>
+    </div>
+
+    <!-- use the shared components we created -->
+    <app-facebook [property1]="'Default'" class="facebook_2284-354"></app-facebook>
+    <app-instagram [size]="'24'" class="instagram_2284-355"></app-instagram>
+  </div>
+
+  <div class="image-2_2284-356">
+    <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <rect width="150" height="150" fill="url(#pattern0_2284_356)" />
+      <defs>
+        <pattern id="pattern0_2284_356" patternContentUnits="objectBoundingBox" width="1" height="1">
+          <use xlink:href="#image0_2284_356" transform="scale(0.00666667)" />
+        </pattern>
+        <image id="image0_2284_356" width="150" height="150" preserveAspectRatio="none" xlink:href="/assets/figma/image2.png" />
+      </defs>
+    </svg>
+  </div>
+
+  <!-- submission result (kept from our original template but positioned close to export) -->
+  <div *ngIf="submissionResult" class="submission-result">
+    <p [class.success]="submissionResult.success">{{ submissionResult.message }}</p>
+  </div>
+</div>

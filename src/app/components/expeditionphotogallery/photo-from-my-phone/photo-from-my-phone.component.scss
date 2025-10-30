@@ -1,0 +1,22 @@
+.root {
+  position: relative;
+  box-sizing: border-box;
+  background:"";
+}
+.overlay {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: flex;
+  box-sizing: content-box;
+}
+
+.checkBox {
+  top: 4px;
+  left: 62px;
+  position: absolute;
+  display: flex;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+}
