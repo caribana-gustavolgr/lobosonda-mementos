@@ -1,0 +1,37 @@
+<div class="register-card">
+  <div class="image-2_2284-356">
+    <img src="assets/svgs/logo.svg" alt="Logo">
+    
+  </div>
+  <span class="text-register-to-relive-your-experience-with-us_2284-342">{{ 'REGISTER.TITLE' | translate }}</span>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="register-form">
+    <label for="email" class="input-label">{{ 'REGISTER.EMAIL' | translate }}</label>
+    <input id="email" type="email" formControlName="email" class="input-email" [placeholder]="'REGISTER.EMAIL' | translate" />
+    <div *ngIf="email?.invalid && (email?.touched || email?.dirty)" class="error">{{ 'REGISTER.EMAIL_ERROR' | translate }}</div>
+
+    <label for="password" class="input-label">{{ 'REGISTER.PASSWORD' | translate }}</label>
+    <input id="password" type="password" formControlName="password" class="input-password" [placeholder]="'REGISTER.PASSWORD' | translate" />
+    <div *ngIf="password?.invalid && (password?.touched || password?.dirty)" class="error">
+      <span *ngIf="password?.errors?.['required']">{{ 'REGISTER.PASSWORD_REQUIRED' | translate }}</span>
+      <span *ngIf="password?.errors?.['minlength']">{{ 'REGISTER.PASSWORD_MINLENGTH' | translate }}</span>
+    </div>
+
+    <label for="confirmPassword" class="input-label">{{ 'REGISTER.CONFIRM_PASSWORD' | translate }}</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" class="input-password" [placeholder]="'REGISTER.CONFIRM_PASSWORD' | translate" />
+    <div *ngIf="confirmPassword?.invalid && (confirmPassword?.touched || confirmPassword?.dirty)" class="error">
+      <span *ngIf="confirmPassword?.errors?.['required']">{{ 'REGISTER.CONFIRM_PASSWORD_REQUIRED' | translate }}</span>
+    </div>
+    <div *ngIf="form.errors?.['passwordMismatch'] && (password?.touched || confirmPassword?.touched)" class="error">
+      {{ 'REGISTER.PASSWORD_MISMATCH' | translate }}
+    </div>
+
+    <button type="submit" class="register-submit">{{ 'REGISTER.SUBMIT' | translate }}</button>
+  </form>
+  <div *ngIf="submissionResult" class="submission-result" [class.success]="submissionResult.success" [class.error]="!submissionResult.success">
+    {{ submissionResult.message }}
+  </div>
+  <div class="login-link">
+    <span>{{ 'REGISTER.ALREADY_HAVE_ACCOUNT' | translate }}</span>
+    <a routerLink="/login">{{ 'REGISTER.LOGIN_LINK' | translate }}</a>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "LOGIN": {
+    "EMAIL": "E-Mail",
+    "PASSWORD": "Passwort",
+    "SUBMIT": "Los geht's",
+    "REGISTER": "Registrieren, um Ihr Erlebnis<br> mit uns erneut zu<br> erleben",
+    "SUBTITLE": "Verbinden Sie sich mit Ihren sozialen Medien",
+    "PRIVACY": "Datenschutzrichtlinie",
+    "FACEBOOK": "Mit Facebook verbinden",
+    "INSTAGRAM": "Mit Instagram verbinden"
+  },
+  "REGISTER": {
+    "TITLE": "Konto erstellen",
+    "EMAIL": "E-Mail",
+    "EMAIL_ERROR": "Eine gültige E-Mail ist erforderlich.",
+    "PASSWORD": "Passwort",
+    "PASSWORD_REQUIRED": "Passwort ist erforderlich.",
+    "PASSWORD_MINLENGTH": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+    "CONFIRM_PASSWORD": "Passwort bestätigen",
+    "CONFIRM_PASSWORD_REQUIRED": "Bitte bestätigen Sie Ihr Passwort.",
+    "PASSWORD_MISMATCH": "Passwörter stimmen nicht überein.",
+    "SUBMIT": "Registrieren",
+    "SUCCESS": "Registrierung erfolgreich!",
+    "ERROR": "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut."
+  }
+}

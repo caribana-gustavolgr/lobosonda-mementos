@@ -1,6 +1,6 @@
 
 /* tokens moved to :root CSS variables in src/styles.scss */
-
+@use "../../../_tokens.scss" as tokens;
 .brands-facebook_3-1311 {
   position: relative;
   box-sizing: border-box;

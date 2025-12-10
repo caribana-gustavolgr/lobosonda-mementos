@@ -1,0 +1,30 @@
+{
+  "LOGIN": {
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "SUBMIT": "Let’s Go",
+    "REGISTER": "Register to RELIVE<br> Your Experience With US",
+    "SUBTITLE": "Let’s connect to your social media",
+    "PRIVACY": "Privacy Policy",
+    "FACEBOOK": "Connect to Facebook",
+    "INSTAGRAM": "Connect to Instagram",
+    "NO_ACCOUNT": "Don't have an account?",
+    "REGISTER_LINK": "Register"
+  },
+  "REGISTER": {
+    "TITLE": "Create your account",
+    "EMAIL": "Email",
+    "EMAIL_ERROR": "A valid email is required.",
+    "PASSWORD": "Password",
+    "PASSWORD_REQUIRED": "Password is required.",
+    "PASSWORD_MINLENGTH": "Password must be at least 8 characters.",
+    "CONFIRM_PASSWORD": "Confirm password",
+    "CONFIRM_PASSWORD_REQUIRED": "Please confirm your password.",
+    "PASSWORD_MISMATCH": "Passwords do not match.",
+    "SUBMIT": "Register",
+    "SUCCESS": "Registration successful!",
+    "ERROR": "Registration failed. Please try again.",
+    "LOGIN_LINK": "Login",
+    "ALREADY_HAVE_ACCOUNT": "Already have an account?"
+  }
+}

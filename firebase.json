@@ -1,0 +1,35 @@
+{
+    "hosting": [
+      {
+        "target": "lobosonda-mementos",
+        "public": "dist/mementos",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      },
+      {
+        "target": "lobosonda-mementos-dev",
+        "public": "dist/mementos-dev",
+        "ignore": [
+          "firebase.json",
+          "**/.*",
+          "**/node_modules/**"
+        ],
+        "rewrites": [
+          {
+            "source": "**",
+            "destination": "/index.html"
+          }
+        ]
+      }
+    ]
+  }
+  

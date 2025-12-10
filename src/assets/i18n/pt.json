@@ -1,0 +1,26 @@
+{
+  "LOGIN": {
+    "EMAIL": "E-mail",
+    "PASSWORD": "Senha",
+    "SUBMIT": "Vamos lá",
+    "REGISTER": "Registre-se para REVIVER<br> sua experiência conosco",
+    "SUBTITLE": "Conecte-se às suas redes sociais",
+    "PRIVACY": "Política de Privacidade",
+    "FACEBOOK": "Conectar ao Facebook",
+    "INSTAGRAM": "Conectar ao Instagram"
+  },
+  "REGISTER": {
+    "TITLE": "Criar sua conta",
+    "EMAIL": "E-mail",
+    "EMAIL_ERROR": "É necessário um email válido.",
+    "PASSWORD": "Senha",
+    "PASSWORD_REQUIRED": "A senha é obrigatória.",
+    "PASSWORD_MINLENGTH": "A senha deve ter pelo menos 8 caracteres.",
+    "CONFIRM_PASSWORD": "Confirmar senha",
+    "CONFIRM_PASSWORD_REQUIRED": "Por favor, confirme sua senha.",
+    "PASSWORD_MISMATCH": "As senhas não coincidem.",
+    "SUBMIT": "Registrar",
+    "SUCCESS": "Registro realizado com sucesso!",
+    "ERROR": "Falha no registro. Tente novamente."
+  }
+}

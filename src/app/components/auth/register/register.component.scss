@@ -1,0 +1,124 @@
+.register-card {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.image-2_2284-356 {
+  align-self: center;
+  margin-bottom: 1.5rem;
+}
+
+.text-register-to-relive-your-experience-with-us_2284-342 {
+  color: #222222;
+  font-size: 22px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1%;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-label {
+  color: #090909;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  line-height: 24px;
+  letter-spacing: 1%;
+  text-decoration: none;
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+}
+
+.input-email,
+.input-password {
+  width: 100%;
+  height: 46px;
+  border: 1px solid #090909;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: #090909;
+  background: #fff;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-email:focus,
+.input-password:focus {
+  border-color: #3983da;
+}
+
+.register-submit {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 22px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s;
+  height: 60px;
+  line-height: 28px;
+  letter-spacing: 0%;
+}
+
+.register-submit:hover {
+  background: #444;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.submission-result {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.submission-result.success {
+  background: #e0f7e9;
+  color: #388e3c;
+}
+
+.submission-result.error {
+  background: #fdecea;
+  color: #d32f2f;
+}
+
+.login-link {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.login-link a {
+  color: #3983da;
+  text-decoration: underline;
+  cursor: pointer;
+}
