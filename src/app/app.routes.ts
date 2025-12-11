@@ -5,6 +5,7 @@ import { TripComponent } from './components/trip/trip.component';
 import { ExpeditionPhotogalleryComponent } from './components/expeditionphotogallery/expeditionphotogallery.component';
 import { PhotodetailComponent } from './components/photodetail/photodetail.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { MyTripsComponent } from './components/my-trips/my-trips.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     { path: 'trip', component: TripComponent },
     { path: 'photo-gallery', component: ExpeditionPhotogalleryComponent },
     { path: 'photo-detail', component: PhotodetailComponent },
+    { path: 'my-trips', component: MyTripsComponent },
     { path: 'app-uploadphoto', loadComponent: () => import('./components/expeditionphotogallery/uploadphoto/uploadphoto.component').then(m => m.UploadphotoComponent) },
     { path: 'figmular-login', loadComponent: () => import('../../figmular/export-result/log-in/log-in.component').then(m => m.LogInComponent) },
 ];
