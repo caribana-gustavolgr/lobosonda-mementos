@@ -52,12 +52,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
-  //min-height: 890px;
+  min-height: 780px;
   margin: 10px auto;
   position: relative;
   text-align: left;
   z-index: 1;
-  display: flex;
+  display: block;
   flex-direction: column;
   justify-content: center;
   
@@ -125,8 +125,9 @@
 .mementos-footer {
   top: 800px;
   left: 0px;
-  position: fixed;
-  display: flex;
+  position: absolute;
+  bottom: 0px;
+  //display: flex;
   box-sizing: border-box;
   overflow: hidden;
   background: #ffffff;
