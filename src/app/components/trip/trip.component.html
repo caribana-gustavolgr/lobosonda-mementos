@@ -10,12 +10,18 @@
     <div class="banner-navigation" id="banner-navigation">
       <div class="navigation-rectangle">
         <div class="navigation-internal-rectangle">
-          <div class="trip_gallery-icon">
-            <img src="assets/svgs/gallery_white.svg" alt="Gallery" width="24" height="24">
+          <!-- Primera línea: icono + título actual -->
+          <div class="navigation-current-line">
+            <div class="trip_gallery-icon">
+              <img src="assets/svgs/gallery_white.svg" alt="Gallery" width="24" height="24">
+            </div>
+            <span class="navigation-item-selected">TOUR DETAILS</span>
           </div>
-          <span class="navigation-item-selected">TOUR DETAILS</span>
-          <app-arrows-chevron-left class="arrows-chevron-right-sm"></app-arrows-chevron-left>
-          <span class="navigation-item">CHANGE TOUR</span>
+          <!-- Segunda línea: flecha + navegación anterior -->
+          <div class="navigation-back-line">
+            <app-arrows-chevron-left class="arrows-chevron-left-sm" color="white"></app-arrows-chevron-left>
+            <span class="navigation-item">CHANGE TOUR</span>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { ArrowsChevronRightSmComponent } from "../share/arrows-chevron-right-sm/arrows-chevron-right-sm.component";
 import { ButtonComponent } from '../share/button/button.component';
 import { SightingRowComponent } from '../sighting-row/sighting-row.component';
 import { ArrowsChevronLeftComponent } from "../share/arrows-chevron-left/arrows-chevron-left.component";
@@ -11,7 +10,6 @@ import { ArrowsChevronLeftComponent } from "../share/arrows-chevron-left/arrows-
   styleUrls: ["./trip.component.scss"],
   standalone: true,
   imports: [
-    ArrowsChevronRightSmComponent,
     ArrowsChevronLeftComponent,
     FormsModule,
     CommonModule,

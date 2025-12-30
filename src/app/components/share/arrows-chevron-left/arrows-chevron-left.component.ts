@@ -9,4 +9,6 @@ import { CommonModule } from "@angular/common";
   imports: [FormsModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ArrowsChevronLeftComponent {}
+export class ArrowsChevronLeftComponent {
+  @Input() color: string = '#1B1B1B';
+}
