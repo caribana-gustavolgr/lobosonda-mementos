@@ -1,4 +1,4 @@
-.expedition-photo-gallery_2284-357 {
+.photo-gallery-main-container {
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
@@ -89,7 +89,7 @@
   display: flex;
 }
 
-.frame-1_2294-471 {
+.gallery-info-container {
   top: 152px;
   left: 22px;
   position: absolute;
@@ -101,10 +101,9 @@
 .text-24-april-2025_2288-257 {
   top: 202px;
   left: 85px;
-  position: absolute;
   display: flex;
   color: #222222;
-  font-size: 12px;
+  font-size: 0.7rem;
   font-family: IBM Plex Mono;
   line-height: 20px;
   letter-spacing: 1%;
@@ -150,7 +149,7 @@
   display: flex;
 }
 
-.text-share-your-experience-by-uploading-your-photos-and-relive-the-day-with-your-fellow-explorers--select-a-photo-to-share-or-create-mementos-_2284-412 {
+.gallery-info-text {
   top: 351px;
   left: 82px;
   position: absolute;
@@ -167,24 +166,7 @@
   height: 65px;
 }
 
-.text-name-of-the-tour-as-determined-by-the-guide_2284-415 {
-  top: 0px;
-  left: 82px;
-  position: absolute;
-  display: flex;
-  color: #222222;
-  font-size: 48px;
-  font-family: Bebas Neue;
-  line-height: 48px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 245px;
-  height: 182px;
-}
-
-.group-32_2285-305 {
+.filter-option1 {
   top: 436px;
   left: 62px;
   position: absolute;
@@ -199,7 +181,7 @@
   display: flex;
 }
 
-.text-only-lobosonda-images_2285-308 {
+.filter-option-text {
   color: #090909;
   font-size: 12px;
   font-family: IBM Plex Mono;
@@ -227,20 +209,7 @@
   display: flex;
 }
 
-.text-only-my-images_2285-313 {
-  color: #090909;
-  font-size: 12px;
-  font-family: IBM Plex Mono;
-  line-height: 12px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 229px;
-  height: 15px;
-}
-
-.gallery_2284-358 {
+.gallery-grid {
   top: 655px;
   left: 0px;
   position: absolute;
@@ -251,7 +220,8 @@
   width: 375px;
   height: 1213px;
 }
-.photo---tag_2284-359 {
+
+.photo-minimal-preview-container {
   top: 20px;
   left: 20px;
   position: absolute;
@@ -259,13 +229,13 @@
   width: 164px;
   height: 243px;
 }
-.uploaded-photo---name---date_2284-360 {
+.photo-minimal-preview {
   position: relative;
   box-sizing: border-box;
   width: 164px;
   height: 243px;
 }
-.rectangle-82_2284-361 {
+.photo-preview-frame {
   top: 0px;
   left: 0px;
   position: absolute;
@@ -273,7 +243,7 @@
   display: flex;
 }
 
-.text-quirico-faustino_2284-362 {
+.photo-preview-title {
   top: 203px;
   left: 0px;
   position: absolute;
@@ -290,7 +260,7 @@
   height: 20px;
 }
 
-.text-16-april-2025-13-53_2284-363 {
+.photo-preview-details {
   top: 223px;
   left: 0px;
   position: absolute;
@@ -307,60 +277,13 @@
   height: 20px;
 }
 
-.photo---tag_2284-364 {
+.photo-minimal-preview-container-right {
   top: 20px;
   left: 191px;
   position: absolute;
   display: flex;
   width: 164px;
   height: 243px;
-}
-.uploaded-photo---name---date_2284-365 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-366 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-leodigisio-liuva_2284-367 {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.text-16-april-2025-13-53_2284-368 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
 }
 
 .photo---tag_2284-369 {
@@ -475,9 +398,9 @@
   height: 20px;
 }
 
-.noun-shopping-2311217-1_2294-461 {
-  top: 9px;
-  left: 105px;
+.shopping-cart-icon-button {
+  top: 2px;
+  right: 2px;
   position: absolute;
   display: flex;
   box-sizing: border-box;

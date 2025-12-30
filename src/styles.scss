@@ -157,3 +157,151 @@
     font-size: 16px;
   }
 }
+
+.top-banner {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 610px;
+  flex-direction: column;
+}
+.top-banner-background {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.top-banner-title {
+  color: #222222;
+  font-size: 64px;
+  font-family: Bebas Neue;
+  line-height: 70px;
+  letter-spacing: 1%;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.top-banner-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.top-banner-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-67%, -50%);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: start;
+  z-index: 5;
+}
+
+.top-banner-info {
+  color: #222222;
+  font-size: 0.7rem;
+  font-family: IBM Plex Mono;
+  line-height: 20px;
+  letter-spacing: 1%;
+  text-decoration: none;
+  font-weight: 500;
+  text-align: center;
+}
+
+.banner-footer {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 10;
+}
+
+.button-banner {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 327px;
+  height: 60px;
+  margin: 20px auto 0;
+}
+
+.banner-navigation {
+  top: 20px;
+  left: 20px;
+  position: absolute;
+  z-index: 10;
+}
+
+.navigation-rectangle {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: flex;
+  //background: rgba(0, 0, 0, 0.3);
+  //border-radius: 8px;
+  padding: 10px;
+}
+
+.navigation-internal-rectangle {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 8px;
+  width: auto;
+  height: auto;
+}
+
+.navigation-current-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation-back-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navigation-item {
+  color: #222222;
+  font-size: 20px;
+  font-family: Bebas Neue;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: center;
+  text-wrap: nowrap;
+  width: 83px;
+  height: 20px;
+}
+.navigation-item-selected {
+  color: #222222;
+  font-size: 24px;
+  font-family: Bebas Neue;
+  line-height: 24px;
+  letter-spacing: 0%;
+  text-decoration: none;
+  font-weight: 400;
+  text-align: left;
+  text-wrap: nowrap;
+  height: 24px;
+}
+
+.arrows-chevron-left-sm {
+  position: relative;
+  width: 1rem;
+  height: 1.2rem;
+  top: -0.2rem;
+}

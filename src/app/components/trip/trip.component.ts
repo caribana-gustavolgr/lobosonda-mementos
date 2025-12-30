@@ -7,7 +7,7 @@ import { ArrowsChevronLeftComponent } from "../share/arrows-chevron-left/arrows-
 @Component({
   selector: "app-trip",
   templateUrl: "./trip.component.html",
-  styleUrls: ["./trip.component.scss"],
+  styleUrls: ['../../../styles.scss',"./trip.component.scss"],
   standalone: true,
   imports: [
     ArrowsChevronLeftComponent,
