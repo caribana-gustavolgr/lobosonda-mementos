@@ -1,0 +1,52 @@
+.custom-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+ 
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+ 
+  .button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 336px;
+    height: 60px;
+  }
+ 
+  .rectangle-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+ 
+  .icon-container {
+    position: relative;
+    right: 10px;
+    z-index: 2;
+    
+    .icon {
+      width: 24px;
+      height: 24px;
+    }
+  }
+ 
+  .button-label {
+    position: relative;
+    z-index: 2;
+    font-family: Bebas Neue;
+    font-size: 22px;
+    font-weight: 500;
+    color: #222222;
+    text-align: center;
+  }
+}

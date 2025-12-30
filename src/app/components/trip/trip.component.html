@@ -1,116 +1,83 @@
-<div class="home_2284-292">
-  <div class="mementos_2284-293">
-    <div class="button-upload-and-print_2284-294">
-      <div class="rectangle-69_2284-296">
-        <svg width="336" height="60" viewBox="0 0 336 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 0.5H328C332.142 0.5 335.5 3.85787 335.5 8V52C335.5 56.1421 332.142 59.5 328 59.5H8C3.85787 59.5 0.5 56.1421 0.5 52V8C0.5 3.85786 3.85786 0.5 8 0.5Z"
-            stroke="#222222"/>
-        </svg>
+<div class="trip-main-container">
+  
+  <div class="trip-banner" id="trip-banner">
+    <div class="trip-banner-background">
+      <img id="image0_2284_329" height="621"
+        src="https://storage.googleapis.com/lobosondaphotos.appspot.com/_DSC5496.JPG-1767009063527" />
+    </div>
+    
+    <!-- Navegación superior -->
+    <div class="banner-navigation">
+      <div class="navigation-rectangle">
+        <div class="navigation-internal-rectangle">
+          <span class="navigation-item">CHANGE TOUR</span>
+          <app-arrows-chevron-right-sm class="arrows-chevron-right-sm_2288-243"></app-arrows-chevron-right-sm>
+          <span class="navigation-item-selected">HOME</span>
+          <app-arrows-chevron-right-sm class="arrows-chevron-right-sm_2288-243"></app-arrows-chevron-right-sm>
+          <div class="gallery-icon_2294-475">
+            <img src="assets/svgs/gallery_white.svg" alt="Gallery" width="24" height="24">
+          </div>
+        </div>
       </div>
-      <div class="group-39_2288-314">
-        <img src="assets/svgs/gallery_black.svg" alt="Gallery" class="gallery">
+    </div>
+    
+    <!-- Título central -->
+    <div class="banner-content">
+      <span class="trip-banner-title" id="trip-name">Name of the TOUR as
+        determined by the Guide</span>
+      <span class="text-24-april-2025_2288-247">24 April 2025</span>
+    </div>
+    
+    <!-- Botón inferior -->
+    <div class="banner-footer">
+      <div class="button-banner" id="button-banner">
+        <app-button label="PHOTO GALLERY" iconPath="assets/svgs/gallery_white.svg" (buttonClick)="onPhotoGalleryClick()"
+          strokeColor="white">
+        </app-button>
       </div>
-      <span class="text-label_2288-317">PHOTO GALLERY</span>
     </div>
   </div>
-  <div class="our-hosts_2284-300">
-    <span class="text-our-sightings_2284-301">Our Sightings</span>
-    <div class="group-18_2284-302">
-      <span class="text-physeter-macrocephalus_2284-303">Physeter Macrocephalus</span>
-      <span
-        class="text-lorem-ipsum-dolor-sit-amet--consectetur-adipiscing-elit--sed-do-eiusmod-tempor-incididunt-ut-labore-et-dolore-magna-_2284-304">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna.</span>
-    </div>
-    <div class="group-17_2284-305">
-      <span class="text-tursiops-truncatus_2284-306">Tursiops Truncatus</span>
-      <span
-        class="text-lorem-ipsum-dolor-sit-amet--consectetur-adipiscing-elit--sed-do-eiusmod-tempor-incididunt-ut-labore-et-dolore-magna-_2284-307">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna.</span>
-    </div>
-    <div class="vector-2_2284-308">
-      <img src="assets/svgs/cachalote.svg" alt="Cachalote">
-    </div>
-    <div class="vector-4_2284-309">
-      <img src="assets/svgs/dolphin.svg" alt="Dolphin">
-    </div>
-  </div>
-  <div class="trip-details_2284-310">
+  
+
+  <div class="trip-details-container" id="trip-details">
+    <span class="trip-details-title">Your tour on</span>
     <div class="temperature_2284-311">
-      <span class="text-27-c--60-mph_2284-312">27 C, 60 mph</span>
-      <app-objects-things-brightness
-        class="objects---things-brightness_2284-313"
-      ></app-objects-things-brightness>
+      <img src="assets/svgs/things_brightness.svg" alt="Things Brightness" class="trip-icons">
+      <span class="trip-info">27 C, 60 mph</span>
     </div>
     <div class="time_2284-316">
+      <img src="assets/svgs/calendar_alt.svg" alt="Calendar Alt" class="trip-icons">
       <span class="text-24-april-2025_2284-317">24 April 2025</span>
-      <app-objects-things-calendar-alt
-        class="objects---things-calendar-alt_2284-318"
-      ></app-objects-things-calendar-alt>
     </div>
     <div class="time_2284-319">
       <span class="text-ribeira-brava_2284-320">Ribeira Brava</span>
     </div>
     <div class="place_2284-321">
-      <span class="text-calheta--madeira_2284-322">Calheta, Madeira</span>
-      <app-navigation-transportation-map-marker
-        class="navigation---transportation-map-marker_2284-323"
-      ></app-navigation-transportation-map-marker>
+      <img src="../../assets/svgs/map_marker.svg" alt="map marker" class="trip-icons">
+      <span class="trip-info">Calheta, Madeira</span>
     </div>
     <div class="ribeira-brava_2284-324">
       <img src="assets/svgs/ribeiraBrava.svg" alt="Ribeira Brava" width="124">
     </div>
     <div class="group-35_2288-249">
-      <div class="time_2284-314">
-        <span class="text-9-30-am_2284-315">9:30 am</span>
-      </div>
-      <div class="noun-hour-7367172-1_2284-325">
-        <img src="assets/svgs/clock.svg" alt="Clock">
-      </div>
+      <img src="assets/svgs/clock.svg" alt="Clock" class="trip-icons">
+      <span class="trip-info">9:30 am</span>
     </div>
   </div>
-  <div class="banner_2284-328">
-    <div class="background_2284-329">
-      <img id="image0_2284_329" height="621" src="https://storage.googleapis.com/lobosondaphotos.appspot.com/_DSC5496.JPG-1767009063527"/>
-      
+
+  <div class="sightings-container" id="sightings">
+    <h2 class="sightings-title">Our Sightings</h2>
+    <div class="sightings-grid">
+      <app-sighting-row *ngFor="let sighting of sightings" [speciesName]="sighting.speciesName"
+        [speciesDescription]="sighting.speciesDescription" [speciesIcon]="sighting.speciesIcon">
+      </app-sighting-row>
     </div>
-    <div class="button-go-to-gallery_2284-330">
-      <div class="rectangle-69_2284-332">
-        <svg width="335"
-          height="60"
-          viewBox="0 0 335 60"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M8 0.5H327C331.142 0.5 334.5 3.85787 334.5 8V52C334.5 56.1421 331.142 59.5 327 59.5H8C3.85787 59.5 0.5 56.1421 0.5 52V8C0.5 3.85786 3.85786 0.5 8 0.5Z"
-            stroke="white"/>
-        </svg>
-      </div>
-      <div class="group-38_2288-309">
-        <img src="assets/svgs/gallery_white.svg" width="32" height="32"/>
-      </div>
-      <span class="text-label_2288-312">PHOTO GALLERY</span>
-    </div>
-    <span class="text-name-of-the-tour-as-determined-by-the-guide_2284-334">Name of the TOUR as determined by the Guide</span >
-    <div class="frame-2_2294-473">
-      <div class="rectangle-96_2294-472">
-        <img
-          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAQSURBVHgBAQUA+v8AAAAAAgAHAAPzMnMaAAAAAElFTkSuQmCC"
-        />
-      </div>
-      <div class="group-34_2288-246">
-        <span class="text-label_2288-242">CHANGE TOUR</span>
-        <app-arrows-chevron-right-sm
-          class="arrows-chevron-right-sm_2288-243"
-        ></app-arrows-chevron-right-sm>
-        <span class="text-photogallery_2294-474">HOME</span>
-        <app-arrows-chevron-right-sm class="arrows-chevron-right-sm_2288-243"
-        ></app-arrows-chevron-right-sm>
-        <div class="gallery-icon_2294-475">
-          <img src="assets/svgs/gallery_white.svg" alt="Gallery" width="24" height="24">
-        </div>
-      </div>
-    </div>
-    <span class="text-24-april-2025_2288-247">24 April 2025</span>
   </div>
-  <span class="text-your-tour-on_2284-335">Your tour on</span>
+  <div class="trip-footer-container" id="footer">
+    <div class="button-footer">
+      <app-button label="PHOTO GALLERY" iconPath="assets/svgs/gallery_black.svg" (buttonClick)="onPhotoGalleryClick()"
+        strokeColor="#222222">
+      </app-button>
+    </div>
+  </div>
 </div>

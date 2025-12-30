@@ -1,22 +1,23 @@
-.home_2284-292 {
+.trip-main-container {
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
-  width: 375px;
-  height: 1807px;
+  overflow: visible;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-.mementos_2284-293 {
-  top: 1230px;
-  left: 1px;
-  position: absolute;
+.trip-footer-container {
+  margin-top: 40px;
+  position: relative;
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
   background: #ffffff;
-  width: 375px;
+  width: 100%;
   height: 160px;
 }
-.button-upload-and-print_2284-294 {
+.button-footer {
   top: 40px;
   left: 24px;
   position: absolute;
@@ -48,40 +49,21 @@
   display: flex;
 }
 
-.text-label_2288-317 {
-  top: 19px;
-  left: 127px;
-  position: absolute;
+.sightings-container {
+  margin: 40px auto 0;
+  position: relative;
   display: flex;
-  color: #222222;
-  font-size: 22px;
-  font-family: Bebas Neue;
-  line-height: 22px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: nowrap;
-  width: 105px;
-  height: 22px;
-}
-
-.our-hosts_2284-300 {
-  top: 902px;
-  left: 1px;
-  position: absolute;
-  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
   background: #d9d9d9;
-  width: 375px;
-  height: 328px;
+  width: 100%;
+  height: auto;
+  min-height: 328px;
+  padding: 20px 19px;
 }
-.text-our-sightings_2284-301 {
-  top: 20px;
-  left: 19px;
-  position: absolute;
-  display: flex;
+.sightings-title {
+  margin: 0 0 20px 0;
   color: #090909;
   font-size: 14px;
   font-family: IBM Plex Mono;
@@ -90,104 +72,25 @@
   text-decoration: none;
   font-weight: 400;
   text-align: left;
-  width: 165px;
-  height: 20px;
 }
 
-.group-18_2284-302 {
-  top: 60px;
-  left: 191px;
-  position: absolute;
+.sightings-grid {
   display: flex;
-  width: 164px;
-  height: 84px;
-}
-.text-physeter-macrocephalus_2284-303 {
-  color: #090909;
-  font-size: 12px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 23px;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
 }
 
-.text-lorem-ipsum-dolor-sit-amet--consectetur-adipiscing-elit--sed-do-eiusmod-tempor-incididunt-ut-labore-et-dolore-magna-_2284-304 {
-  color: #090909;
-  font-size: 10px;
-  font-family: Montserrat;
-  line-height: 12px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 300;
-  text-align: left;
-  width: 164px;
-  height: 53px;
-}
-
-.group-17_2284-305 {
-  top: 184px;
-  left: 191px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 83px;
-}
-.text-tursiops-truncatus_2284-306 {
-  color: #090909;
-  font-size: 12px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 23px;
-}
-
-.text-lorem-ipsum-dolor-sit-amet--consectetur-adipiscing-elit--sed-do-eiusmod-tempor-incididunt-ut-labore-et-dolore-magna-_2284-307 {
-  color: #090909;
-  font-size: 10px;
-  font-family: Montserrat;
-  line-height: 12px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 300;
-  text-align: left;
-  width: 164px;
-  height: 52px;
-}
-
-.vector-2_2284-308 {
-  top: 98px;
-  left: 23px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.vector-4_2284-309 {
-  top: 225px;
-  left: 35px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.trip-details_2284-310 {
-  top: 610px;
-  left: 1px;
-  position: absolute;
+.trip-details-container {
+  margin: 40px auto 0;
+  position: relative;
   display: flex;
   box-sizing: border-box;
   overflow: hidden;
   background: #ffffff;
-  width: 375px;
-  height: 292px;
+  width: 100%;
+  height: auto;
+  min-height: 292px;
 }
 .temperature_2284-311 {
   top: 233px;
@@ -196,24 +99,6 @@
   display: flex;
   width: 189px;
   height: 19px;
-}
-.text-27-c--60-mph_2284-312 {
-  color: #1b1b1b;
-  font-size: 12px;
-  font-family: IBM Plex Mono;
-  line-height: 22px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 156px;
-  height: 19px;
-}
-
-.objects---things-brightness_2284-313 {
-  position: relative;
-  width: 14px;
-  height: 14px;
 }
 
 .time_2284-316 {
@@ -272,7 +157,7 @@
   width: 188px;
   height: 19px;
 }
-.text-calheta--madeira_2284-322 {
+.trip-info {
   color: #1b1b1b;
   font-size: 12px;
   font-family: IBM Plex Mono;
@@ -285,10 +170,13 @@
   height: 19px;
 }
 
-.navigation---transportation-map-marker_2284-323 {
+.trip-icons {
+  height: 0.8rem;
+  right: 0.2rem;
   position: relative;
-  width: 14px;
-  height: 14px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
 }
 
 .ribeira-brava_2284-324 {
@@ -307,29 +195,7 @@
   width: 189px;
   height: 19px;
 }
-.time_2284-314 {
-  width: 156px;
-  height: 19px;
-}
-.text-9-30-am_2284-315 {
-  color: #1b1b1b;
-  font-size: 12px;
-  font-family: IBM Plex Mono;
-  line-height: 22px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 156px;
-  height: 19px;
-}
 
-.noun-hour-7367172-1_2284-325 {
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-}
 .vector_2284-326 {
   top: 1px;
   left: 1px;
@@ -346,31 +212,38 @@
   display: flex;
 }
 
-.banner_2284-328 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
+.trip-banner {
+  position: relative;
   display: flex;
   box-sizing: border-box;
-  width: 376px;
+  width: 100%;
   height: 610px;
+  flex-direction: column;
 }
-.background_2284-329 {
+.trip-banner-background {
   top: 0px;
   left: 0px;
   position: absolute;
   display: flex;
-  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.button-go-to-gallery_2284-330 {
-  top: 510px;
-  left: 24px;
-  position: absolute;
+.trip-banner-background img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.button-banner {
+  position: relative;
   display: flex;
   box-sizing: border-box;
   width: 327px;
   height: 60px;
+  margin: 20px auto 0;
 }
 .rectangle-69_2284-332 {
   top: 0px;
@@ -413,11 +286,7 @@
   height: 22px;
 }
 
-.text-name-of-the-tour-as-determined-by-the-guide_2284-334 {
-  top: 152px;
-  left: 20px;
-  position: absolute;
-  display: flex;
+.trip-banner-title {
   color: #ffffff;
   font-size: 64px;
   font-family: Bebas Neue;
@@ -426,36 +295,54 @@
   text-decoration: none;
   font-weight: 400;
   text-align: left;
-  width: 336px;
-  height: 264px;
+  margin-bottom: 10px;
 }
 
-.frame-2_2294-473 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  box-sizing: border-box;
-  width: 376px;
-  height: 132px;
-}
-.rectangle-96_2294-472 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.group-34_2288-246 {
-  top: 61px;
+.banner-navigation {
+  top: 20px;
   left: 20px;
   position: absolute;
-  display: flex;
-  width: 119px;
-  height: 51px;
+  z-index: 10;
 }
-.text-label_2288-242 {
+
+.banner-content {
+  top: 50%;
+  left: 50%;
+  transform: translate(-67%, -50%);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: start;
+  z-index: 5;
+}
+
+.banner-footer {
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 10;
+}
+.navigation-rectangle {
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  display: flex;
+  //background: rgba(0, 0, 0, 0.3);
+  //border-radius: 8px;
+  padding: 10px;
+}
+
+.navigation-internal-rectangle {
+  position: relative;
+  display: flex;
+  align-items: left;
+  gap: 10px;
+  width: auto;
+  height: auto;
+}
+.navigation-item {
   color: #ffffff;
   font-size: 20px;
   font-family: Bebas Neue;
@@ -475,7 +362,7 @@
   height: 20px;
 }
 
-.text-photogallery_2294-474 {
+.navigation-item-selected {
   color: #ffffff;
   font-size: 24px;
   font-family: Bebas Neue;
@@ -509,10 +396,6 @@
 }
 
 .text-24-april-2025_2288-247 {
-  top: 436px;
-  left: 29px;
-  position: absolute;
-  display: flex;
   color: #ffffff;
   font-size: 12px;
   font-family: IBM Plex Mono;
@@ -520,15 +403,13 @@
   letter-spacing: 1%;
   text-decoration: none;
   font-weight: 500;
-  text-align: left;
-  width: 116px;
-  height: 10px;
+  text-align: center;
 }
 
-.text-your-tour-on_2284-335 {
-  top: 630px;
+.trip-details-title {
+  top: 30px;
   left: 34px;
-  position: absolute;
+  position: relative;
   display: flex;
   color: #090909;
   font-size: 14px;
@@ -538,6 +419,6 @@
   text-decoration: none;
   font-weight: 400;
   text-align: left;
-  width: 332px;
+  width: 100%;
   height: 14px;
 }
