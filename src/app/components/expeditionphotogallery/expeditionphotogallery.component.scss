@@ -3,156 +3,60 @@
   box-sizing: border-box;
   overflow: hidden;
   background: #ffffff;
-  width: 375px;
-  height: 1840px;
-}
-.navigation_2284-417 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
+  width: 100%;
+  min-height: 100vh;
   display: flex;
-  box-sizing: border-box;
-  background: #ffffff;
-  width: 375px;
-  height: 132px;
-  box-shadow: 0px 4px 4px 0px #0000000c;
-}
-.text-photogallery_2288-339 {
-  top: 60px;
-  left: 57px;
-  position: absolute;
-  display: flex;
-  color: #222222;
-  font-size: 24px;
-  font-family: Bebas Neue;
-  line-height: 24px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: nowrap;
-  width: 114px;
-  height: 24px;
-}
-
-.arrow-icon_2288-458 {
-  top: 92px;
-  left: 21px;
-  position: absolute;
-  display: flex;
-  width: 20px;
-  height: 20px;
-}
-.arrows-chevron-right-sm_2288-445 {
-  position: relative;
-  width: 20px;
-  height: 20px;
-}
-
-.text-home_2284-418 {
-  top: 92px;
-  left: 57px;
-  position: absolute;
-  display: flex;
-  color: #222222;
-  font-size: 20px;
-  font-family: Bebas Neue;
-  line-height: 20px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 52px;
-  height: 20px;
-}
-
-.gallery-icon_2288-457 {
-  top: 60px;
-  left: 21px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-.rectangle-95_2288-448 {
-  display: flex;
-}
-
-.group-39_2288-453 {
-  width: 16px;
-  height: 18px;
-}
-.vector_2288-454 {
-  display: flex;
-}
-
-.vector_2288-455 {
-  display: flex;
+  flex-direction: column;
 }
 
 .gallery-info-container {
-  top: 152px;
-  left: 22px;
-  position: absolute;
-  display: flex;
+  position: relative;
+  display: block;
   box-sizing: border-box;
-  width: 330px;
-  height: 506px;
-}
-.text-24-april-2025_2288-257 {
-  top: 202px;
-  left: 85px;
-  display: flex;
-  color: #222222;
-  font-size: 0.7rem;
-  font-family: IBM Plex Mono;
-  line-height: 20px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 116px;
-  height: 9px;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  left:4rem;
+  text-wrap: auto;
 }
 
-.button-upload-your-photos_2284-409 {
-  top: 251px;
-  left: 0px;
-  position: absolute;
-  display: flex;
+.gallery-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 20px;
   box-sizing: border-box;
-  width: 327px;
-  height: 60px;
-}
-.text-label_2284-410 {
-  top: 18px;
-  left: 91px;
-  position: absolute;
-  display: flex;
-  color: #222222;
-  font-size: 22px;
-  font-family: Bebas Neue;
-  line-height: 28px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: nowrap;
-  width: 145px;
-  height: 28px;
+  width: 100%;
+  background: #ffffff;
+
+  // Mobile-first approach - already 2 columns on mobile
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    padding: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 32px;
+  }
 }
 
-.rectangle-69_2284-411 {
-  top: -1px;
-  left: -1px;
-  position: absolute;
+.trip-footer-container {
+  position: relative;
   display: flex;
-  display: flex;
+  box-sizing: border-box;
+  background: #ffffff;
+  width: 100%;
+  height: auto;
+  padding: 40px 24px;
+  margin-top: auto;
 }
+
 
 .gallery-info-text {
-  top: 351px;
-  left: 82px;
-  position: absolute;
   display: flex;
   color: #222222;
   font-size: 12px;
@@ -162,23 +66,20 @@
   text-decoration: none;
   font-weight: 400;
   text-align: left;
-  width: 248px;
-  height: 65px;
+  width: calc(100% - 4rem);
+  margin-bottom: 20px;
 }
 
 .filter-option1 {
-  top: 436px;
-  left: 62px;
-  position: absolute;
   display: flex;
-  width: 248px;
-  height: 15px;
+  align-items: center;
+  width: calc(100% - 4rem);
+  margin-bottom: 12px;
 }
+
 .button-cancel_2285-306 {
   display: flex;
-}
-.rectangle-69_2285-307 {
-  display: flex;
+  margin-right: 8px;
 }
 
 .filter-option-text {
@@ -190,518 +91,17 @@
   text-decoration: none;
   font-weight: 400;
   text-align: left;
-  width: 229px;
-  height: 15px;
 }
 
-.group-33_2285-310 {
-  top: 471px;
-  left: 62px;
-  position: absolute;
-  display: flex;
-  width: 248px;
-  height: 15px;
-}
 .button-cancel_2285-311 {
   display: flex;
-}
-.rectangle-69_2285-312 {
-  display: flex;
+  margin-right: 8px;
 }
 
-.gallery-grid {
-  top: 655px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  box-sizing: border-box;
-  overflow: hidden;
-  background: #ffffff;
-  width: 375px;
-  height: 1213px;
-}
-
-.photo-minimal-preview-container {
-  top: 20px;
-  left: 20px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.photo-minimal-preview {
+.button-footer {
   position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.photo-preview-frame {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.photo-preview-title {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.photo-preview-details {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.photo-minimal-preview-container-right {
-  top: 20px;
-  left: 191px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-
-.photo---tag_2284-369 {
-  top: 283px;
-  left: 20px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.uploaded-photo---name---date_2284-370 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-371 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-pot-mio-meso_2284-372 {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.text-16-april-2025-13-53_2284-373 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.photo---tag_2284-374 {
-  top: 283px;
-  left: 191px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.uploaded-photo---name---date_2284-375 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-376 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-lobosonda_2284-377 {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.text-16-april-2025-13-53_2284-378 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.shopping-cart-icon-button {
-  top: 2px;
-  right: 2px;
-  position: absolute;
   display: flex;
   box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-}
-.vector_2294-462 {
-  top: 12px;
-  left: 10px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.photo---tag_2284-379 {
-  top: 547px;
-  left: 20px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.uploaded-photo---name---date_2284-380 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-381 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-alfonse-afonso_2284-382 {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.text-16-april-2025-13-53_2284-383 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.photo---tag_2284-384 {
-  top: 547px;
-  left: 191px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.uploaded-photo---name---date_2284-385 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-386 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-benigno-lucr-cio_2284-387 {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.text-16-april-2025-17-03_2284-388 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.rectangle-93_2284-389 {
-  display: flex;
-}
-
-.text-only-you-can-view_2284-390 {
-  color: #ffffff;
-  font-size: 12px;
-  font-family: Bebas Neue;
-  line-height: 12px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  text-wrap: nowrap;
-  width: 73px;
-  height: 12px;
-}
-
-.photo---tag_2284-391 {
-  top: 810px;
-  left: 20px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.uploaded-photo---name---date_2284-392 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-393 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-lobosonda_2284-394 {
-  top: 203px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.text-16-april-2025-13-53_2284-395 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.noun-shopping-2311217-1_2294-464 {
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
-  display: flex;
-}
-.vector_2294-465 {
-  top: 12px;
-  left: 10px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.photo---tag_2284-396 {
-  top: 810px;
-  left: 191px;
-  position: absolute;
-  display: flex;
-  width: 164px;
-  height: 243px;
-}
-.uploaded-photo---name---date_2284-397 {
-  position: relative;
-  box-sizing: border-box;
-  width: 164px;
-  height: 243px;
-}
-.rectangle-82_2284-398 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  display: flex;
-}
-
-.text-frutuoso-manucino_2284-399 {
-  top: 204px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 16px;
-  font-family: IBM Plex Mono;
-  line-height: 16px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
-  text-align: left;
-  width: 172px;
-  height: 20px;
-}
-
-.text-16-april-2025-13-53_2284-400 {
-  top: 223px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 24px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  width: 164px;
-  height: 20px;
-}
-
-.button-upload-your-photos_2288-342 {
-  top: 1094px;
-  left: 24px;
-  position: absolute;
-  display: flex;
-  box-sizing: border-box;
-  width: 327px;
-  height: 60px;
-}
-.text-label_2288-343 {
-  top: 18px;
-  left: 91px;
-  position: absolute;
-  display: flex;
-  color: #222222;
-  font-size: 22px;
-  font-family: Bebas Neue;
-  line-height: 28px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: nowrap;
-  width: 145px;
-  height: 28px;
-}
-
-.rectangle-69_2288-344 {
-  top: 0px;
-  left: -4px;
-  position: absolute;
-  display: flex;
-  display: flex;
+  width: 100%;
+  height: auto;
 }

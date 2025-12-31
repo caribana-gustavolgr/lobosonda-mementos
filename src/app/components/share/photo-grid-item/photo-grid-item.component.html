@@ -1,0 +1,25 @@
+<div class="photo-grid-item" (click)="onSelectPhoto()">
+  <div class="photo-preview-frame">
+    <img [src]="imageUrl" [alt]="title" width="164" height="195.344" />
+  </div>
+  
+  <div class="photo-info">
+    <span class="photo-title">{{ title }}</span>
+    <span class="photo-date">{{ date }}</span>
+  </div>
+
+  <!-- Shopping cart button for purchasable photos -->
+  <div *ngIf="canBePurchased" class="shopping-cart-icon-button" (click)="onPurchaseClick($event)">
+    <img src="assets/svgs/shopping_cart.svg" alt="Shopping Cart" width="40" height="40">
+  </div>
+
+  <!-- Action buttons for own photos -->
+  <div *ngIf="isOwnPhoto" class="photo-actions">
+    <button class="action-button edit-button" (click)="onEditClick($event)" title="Edit photo">
+      <img src="assets/svgs/edit.svg" alt="Edit" width="20" height="20">
+    </button>
+    <button class="action-button delete-button" (click)="onDeleteClick($event)" title="Delete photo">
+      <img src="assets/svgs/trash.svg" alt="Delete" width="20" height="20">
+    </button>
+  </div>
+</div>
