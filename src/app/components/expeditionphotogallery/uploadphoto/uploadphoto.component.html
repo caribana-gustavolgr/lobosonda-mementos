@@ -54,6 +54,11 @@
       <app-button 
         label="CANCEL"
         (buttonClick)="onCancel()"
+        [width]="74"
+        [height]="40"
+        [fontSize]="22"
+        strokeColor="#222222"
+        backgroundColor="transparent"
         class="cancel-button">
       </app-button>
       
@@ -61,6 +66,11 @@
         label="UPLOAD ({{ selectedCount }})"
         (buttonClick)="onUpload()"
         [disabled]="selectedCount === 0"
+        [width]="159"
+        [height]="40"
+        [fontSize]="22"
+        [strokeColor]="selectedCount > 0 ? '#ffffff' : '#ffffff'"
+        [backgroundColor]="selectedCount > 0 ? '#222222' : '#8C8C8C'"
         class="upload-button">
       </app-button>
     </div>

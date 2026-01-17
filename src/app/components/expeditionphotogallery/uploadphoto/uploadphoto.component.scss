@@ -13,7 +13,7 @@
 
 .image-grid-section {
   flex: 1;
-  border: 0.5px solid #222222;
+  //border: 0.5px solid #222222;
   border-bottom: none;
 }
 
@@ -44,7 +44,7 @@
 .upload-form-section {
   padding: 20px 23px 30px;
   background: #ffffff;
-  border: 0.5px solid #222222;
+  //border: 0.5px solid #222222;
   border-top: none;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .caption-field {
-  width: 100%;
+  width: 90%;
   height: 46px;
   border: 0.5px solid #000000;
   background: transparent;
@@ -74,6 +74,7 @@
 
 .privacy-settings {
   margin-bottom: 30px;
+  margin-left: 4rem;
 }
 
 .privacy-title {
@@ -132,47 +133,9 @@
   justify-content: flex-end;
 }
 
-.cancel-button {
-  min-width: 74px;
-  
-  ::ng-deep app-button {
-    .button-content {
-      border: 1px solid #222222;
-      background: transparent;
-      color: #222222;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      line-height: 28px;
-      text-align: center;
-      padding: 6px 0;
-    }
-  }
-}
-
-.upload-button {
-  min-width: 159px;
-  
-  ::ng-deep app-button {
-    .button-content {
-      background: #8c8c8c;
-      border: 1px solid #8c8c8c;
-      color: tokens.$collection-1-color;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      line-height: 28px;
-      text-align: center;
-      padding: 6px 0;
-      
-      &[disabled] {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-    }
-  }
-}
-
 .terms-section {
-  text-align: center;
+  text-align: left;
+  margin-left: 4rem;
 }
 
 .terms-text {
@@ -208,7 +171,8 @@
   }
   
   .action-buttons {
-    justify-content: center;
+    justify-content: left;
+    margin-left: 4rem;
   }
 }
 
