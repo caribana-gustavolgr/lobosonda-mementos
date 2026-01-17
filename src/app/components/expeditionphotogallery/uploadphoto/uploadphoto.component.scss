@@ -1,563 +1,229 @@
 @use '../../../_tokens' as tokens;
 
-.upload-photo_2284-607 {
-  position: relative;
-  box-sizing: border-box;
-  overflow: hidden;
+.upload-photo-container {
   background: #ffffff;
-  width: 375px;
-  height: 873px;
-}
-.phone-gallery-pop-up_2284-609 {
-  top: 0px;
-  left: 0px;
-  position: absolute;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+  min-height: 100vh;
   display: flex;
-  box-sizing: border-box;
-  border-color: #222222;
-  border-style: solid;
-  border-width: 0.5px;
+  flex-direction: column;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.image-grid-section {
+  flex: 1;
+  border: 0.5px solid #222222;
+  border-bottom: none;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  padding: 8px;
+  max-height: 423px;
+  overflow-y: auto;
+}
+
+.photo-item {
+  width: 100%;
+  height: 90px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: scale(0.95);
+  }
+  
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.upload-form-section {
+  padding: 20px 23px 30px;
   background: #ffffff;
-  width: 375px;
-  height: 873px;
-}
-.photo-from-my-phone_2284-612 {
-  top: 8px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
+  border: 0.5px solid #222222;
+  border-top: none;
 }
 
-.photo-from-my-phone_2284-613 {
-  top: 8px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
+.caption-input {
+  margin-bottom: 20px;
 }
 
-.photo-from-my-phone_2284-614 {
-  top: 8px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-615 {
-  top: 8px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-616 {
-  top: 8px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-617 {
-  top: 103px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-618 {
-  top: 103px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-619 {
-  top: 103px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-620 {
-  top: 103px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-621 {
-  top: 198px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-622 {
-  top: 198px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-623 {
-  top: 198px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-624 {
-  top: 198px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-625 {
-  top: 293px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-626 {
-  top: 293px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-627 {
-  top: 293px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-628 {
-  top: 293px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-629 {
-  top: 388px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-630 {
-  top: 388px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-631 {
-  top: 388px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-632 {
-  top: 388px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-633 {
-  top: 483px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-634 {
-  top: 483px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-635 {
-  top: 483px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-636 {
-  top: 483px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-637 {
-  top: 578px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-638 {
-  top: 578px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-639 {
-  top: 578px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-640 {
-  top: 578px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-641 {
-  top: 673px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-642 {
-  top: 673px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-643 {
-  top: 673px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-644 {
-  top: 673px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-645 {
-  top: 768px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-646 {
-  top: 768px;
-  left: 95px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-647 {
-  top: 768px;
-  left: 190px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.photo-from-my-phone_2284-648 {
-  top: 768px;
-  left: 285px;
-  position: absolute;
-  display: flex;
-  width: 90px;
-  height: 90px;
-}
-
-.pop-up--upload_2284-649 {
-  top: 523px;
-  left: 0px;
-  position: absolute;
-  display: flex;
-  box-sizing: border-box;
-  background: #ffffff;
-  width: 375px;
-  height: 350px;
-}
-.button-upload_2284-650 {
-  top: 204px;
-  left: 200px;
-  position: absolute;
-  display: flex;
-  width: 159px;
-  height: 40px;
-}
-.rectangle-83_2284-651 {
-  display: flex;
-}
-
-.text-label_2284-652 {
-  color: tokens.$collection-1-color;
-  font-size: 22px;
-  font-family: Bebas Neue;
-  line-height: 28px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: wrap;
-  width: 159px;
-  height: 28px;
-}
-
-.input-add-description_2284-653 {
-  top: 20px;
-  left: 23px;
-  position: absolute;
-  display: flex;
-  width: 336px;
+.caption-field {
+  width: 100%;
   height: 46px;
-}
-.rectangle-84_2284-654 {
-  display: flex;
-}
-
-.text-add-a-caption-or-description---_2284-655 {
-  color: #8c8c8c;
+  border: 0.5px solid #000000;
+  background: transparent;
+  padding: 12px 16px;
   font-size: 14px;
-  font-family: IBM Plex Sans;
-  line-height: 28px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: nowrap;
-  width: 188px;
-  height: 28px;
-}
-
-.button-cancel_2284-656 {
-  top: 204px;
-  left: 111px;
-  position: absolute;
-  display: flex;
-  width: 74px;
-  height: 40px;
-}
-.rectangle-69_2284-657 {
-  display: flex;
-}
-
-.text-label_2284-658 {
   color: #222222;
-  font-size: 22px;
-  font-family: Bebas Neue;
-  line-height: 28px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: center;
-  text-wrap: wrap;
-  width: 74px;
-  height: 28px;
+  
+  &::placeholder {
+    color: #8c8c8c;
+    font-size: 14px;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: #222222;
+  }
 }
 
-.text-by-clicking-upload-you-agree-to-the-terms---conditions-_2284-659 {
-  top: 266px;
-  left: 111px;
-  position: absolute;
-  display: flex;
-  font-size: 10px;
-  font-family: IBM Plex Mono;
-  line-height: 12px;
-  letter-spacing: 0%;
-  text-decoration: none;
-  font-weight: 400;
-  text-align: left;
-  text-wrap: wrap;
-  width: 226px;
-  height: 24px;
+.privacy-settings {
+  margin-bottom: 30px;
 }
 
-.group-29_2284-660 {
-  top: 138px;
-  left: 111px;
-  position: absolute;
-  display: flex;
-  width: 248px;
-  height: 15px;
-}
-.button-cancel_2284-661 {
-  display: flex;
-}
-.rectangle-69_2284-662 {
-  display: flex;
-}
-
-.text-only-you-can-view_2284-663 {
-  color: #090909;
+.privacy-title {
+  font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  text-align: left;
-  width: 229px;
-  height: 15px;
-}
-
-.group-30_2284-664 {
-  top: 169px;
-  left: 111px;
-  position: absolute;
-  display: flex;
-  width: 248px;
-  height: 15px;
-}
-.button-cancel_2284-665 {
-  display: flex;
-}
-.rectangle-69_2284-666 {
-  display: flex;
-}
-
-.text-only-you-can-share_2284-667 {
-  color: #090909;
-  font-size: 12px;
-  line-height: 12px;
-  letter-spacing: 1%;
-  text-decoration: none;
-  text-align: left;
-  width: 229px;
-  height: 15px;
-}
-
-.text-choose-how-your-pictures-are-used-on-this-platform-_2284-672 {
-  top: 86px;
-  left: 111px;
-  position: absolute;
-  display: flex;
-  color: #090909;
-  font-size: 12px;
-  font-family: IBM Plex Mono;
+  font-weight: 500;
   line-height: 16px;
   letter-spacing: 1%;
-  text-decoration: none;
-  font-weight: 500;
+  color: #090909;
+  margin: 0 0 16px 0;
   text-align: left;
-  width: 248px;
-  height: 32px;
 }
 
-/* Layout override: use CSS Grid for the phone gallery so the many absolute
-   host-position rules generated by the figma export don't overlap and the
-   gallery flows responsively. This sits after the generated rules so it
-   overrides them. */
-.phone-gallery-pop-up_2284-609 {
-  /* keep the parent positioning so absolute-positioned siblings (pop-up) still work */
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 375px;
-  height: 423px; /* leave space for the popup below */
-  display: grid;
-  grid-template-columns: repeat(4, 90px);
-  grid-auto-rows: 90px;
-  gap: 5px;
-  align-content: start;
-  box-sizing: border-box;
-  padding: 8px 0 0 0;
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.phone-gallery-pop-up_2284-609 app-photo-from-my-phone,
-.phone-gallery-pop-up_2284-609 > app-photo-from-my-phone,
-.phone-gallery-pop-up_2284-609 .photo-from-my-phone_2284-612,
-.phone-gallery-pop-up_2284-609 .photo-from-my-phone_2284-613,
-.phone-gallery-pop-up_2284-609 .photo-from-my-phone_2284-614,
-.phone-gallery-pop-up_2284-609 .photo-from-my-phone_2284-615,
-.phone-gallery-pop-up_2284-609 .photo-from-my-phone_2284-616 {
-  /* override generated absolute positions */
-  position: static !important;
-  width: 90px !important;
-  height: 90px !important;
-  display: block !important;
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: 1%;
+  color: #090909;
+}
+
+.checkbox-input {
+  width: 12px;
+  height: 12px;
+  border: 1px solid #222222;
+  background: transparent;
+  cursor: pointer;
+  
+  &:checked {
+    background: #222222;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.checkbox-text {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  min-width: 74px;
+  
+  ::ng-deep app-button {
+    .button-content {
+      border: 1px solid #222222;
+      background: transparent;
+      color: #222222;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      line-height: 28px;
+      text-align: center;
+      padding: 6px 0;
+    }
+  }
+}
+
+.upload-button {
+  min-width: 159px;
+  
+  ::ng-deep app-button {
+    .button-content {
+      background: #8c8c8c;
+      border: 1px solid #8c8c8c;
+      color: tokens.$collection-1-color;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      line-height: 28px;
+      text-align: center;
+      padding: 6px 0;
+      
+      &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.terms-section {
+  text-align: center;
+}
+
+.terms-text {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  line-height: 12px;
+  color: #222222;
+  margin: 0;
+}
+
+.terms-link {
+  color: #222222;
+  text-decoration: underline;
+  cursor: pointer;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Responsive Design
+@media (min-width: 376px) {
+  .upload-photo-container {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+  }
+  
+  .image-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    max-height: 500px;
+  }
+  
+  .action-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .upload-form-section {
+    padding: 15px 16px 20px;
+  }
+  
+  .image-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    padding: 6px;
+  }
+  
+  .photo-item {
+    height: 80px;
+  }
 }
