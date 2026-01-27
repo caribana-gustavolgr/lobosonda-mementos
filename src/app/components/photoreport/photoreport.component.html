@@ -1,0 +1,84 @@
+<div class="photo-detail-container">
+  <!-- Navigation Header -->
+  <div class="navigation-header">
+    <div class="nav-item" (click)="goBack()">
+      <app-arrows-chevron-left class="nav-arrow"></app-arrows-chevron-left>
+      <span class="nav-text">REPORT IMAGE</span>
+    </div>
+  </div>
+
+  <!-- Photo Display Area -->
+  <div class="photo-display">
+    <div class="photo-placeholder">
+      <!-- This would be replaced with actual photo -->
+      <div class="photo-content"></div>
+    </div>
+  </div>
+
+  <!-- Report Section -->
+  <div class="photo-details">
+    <!-- Before Submit -->
+    <div *ngIf="!isReportSubmitted" class="report-form">
+      <h2 class="report-title">Thank you for reporting!</h2>
+      <p class="report-description">
+        This image will no longer be shared on the gallery.<br>
+        Please share your concerns about the image.<br>
+        This feedback will be reviewed by our team and shared with the author of the image.
+      </p>
+      
+      <!-- Report Reason Textarea -->
+      <div class="report-reason">
+        <textarea 
+          class="report-textarea"
+          [(ngModel)]="reportReason"
+          placeholder="Enter your concerns about this image..."
+          rows="4"></textarea>
+      </div>
+      
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <app-button 
+          label="CANCEL"
+          (buttonClick)="onCancel()"
+          [width]="78"
+          [height]="40"
+          [fontSize]="22"
+          strokeColor="#222222"
+          backgroundColor="transparent"
+          class="cancel-button">
+        </app-button>
+        
+        <app-button 
+          label="REPORT"
+          (buttonClick)="onSubmitReport()"
+          [disabled]="!reportReason.trim()"
+          [width]="165"
+          [height]="40"
+          [fontSize]="22"
+          strokeColor="#ffffff"
+          [backgroundColor]="reportReason.trim() ? '#222222' : '#8C8C8C'"
+          class="report-button">
+        </app-button>
+      </div>
+    </div>
+    
+    <!-- After Submit -->
+    <div *ngIf="isReportSubmitted" class="report-success">
+      <p class="success-message">This image is no longer shared on the gallery.</p>
+      <p class="success-thanks">Thank you for sharing your concerns!</p>
+      
+      <div class="back-to-gallery">
+        <app-button 
+          label="BACK TO GALLERY"
+          (buttonClick)="goToPhotoGallery()"
+          [width]="336"
+          [height]="60"
+          [fontSize]="22"
+          strokeColor="#ffffff"
+          backgroundColor="#222222"
+          class="gallery-button">
+        </app-button>
+      </div>
+    </div>
+  </div>
+</div>

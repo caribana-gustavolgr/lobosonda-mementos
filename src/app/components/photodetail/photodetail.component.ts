@@ -29,13 +29,13 @@ export class PhotodetailComponent {
   }
 
   onEditPhoto() {
-    // TODO: Navigate to edit photo component when created
-    console.log('Navigate to edit photo');
+    // Navigate to edit photo component
+    this.router.navigate(['/photo-edit']);
   }
 
   onReportImage() {
-    // TODO: Implement report image functionality
-    console.log('Report image');
+    // Navigate to report image component
+    this.router.navigate(['/photo-report']);
   }
 
   onPreviousPhoto() {

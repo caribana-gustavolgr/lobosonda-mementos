@@ -1,6 +1,8 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://api.mementos.com/v1',
+  version_api: '/api/v1/',
+  API_URL: 'http://localhost:8080',
+  // API_URL: 'https://lobosondaphotos.ew.r.appspot.com',
   firebaseConfig: {
     apiKey: "AIzaSyC5ijSnJRnclb0Q8GmUZKYCZbmxyJwywnc",
     authDomain: "lobosondaphotos.firebaseapp.com",

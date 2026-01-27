@@ -6,7 +6,6 @@ import { ExpeditionPhotogalleryComponent } from './components/expeditionphotogal
 import { PhotodetailComponent } from './components/photodetail/photodetail.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { MyTripsComponent } from './components/my-trips/my-trips.component';
-import { PhotoFromMyPhoneComponent } from './components/expeditionphotogallery/photo-from-my-phone/photo-from-my-phone.component';
 
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -17,5 +16,7 @@ export const routes: Routes = [
     { path: 'my-trips', component: MyTripsComponent },
     { path: 'app-uploadphoto', loadComponent: () => import('./components/expeditionphotogallery/uploadphoto/uploadphoto.component').then(m => m.UploadphotoComponent) },
     { path: 'photo-from-my-phone', loadComponent: () => import('./components/expeditionphotogallery/photo-from-my-phone/photo-from-my-phone.component').then(m => m.PhotoFromMyPhoneComponent) },
+    { path: 'photo-edit', loadComponent: () => import('./components/photoedit/photoedit.component').then(m => m.PhotoEditComponent) },
+    { path: 'photo-report', loadComponent: () => import('./components/photoreport/photoreport.component').then(m => m.PhotoReportComponent) },
     { path: 'figmular-login', loadComponent: () => import('../../figmular/export-result/log-in/log-in.component').then(m => m.LogInComponent) },
 ];

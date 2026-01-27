@@ -1,0 +1,87 @@
+<div class="photo-detail-container">
+  <!-- Navigation Header -->
+  <div class="navigation-header">
+    <div class="nav-item" (click)="goBack()">
+      <app-arrows-chevron-left class="nav-arrow"></app-arrows-chevron-left>
+      <span class="nav-text">PHOTO DETAILS</span>
+    </div>
+  </div>
+
+  <!-- Photo Display Area -->
+  <div class="photo-display">
+    <div class="photo-placeholder">
+      <!-- This would be replaced with actual photo -->
+      <div class="photo-content"></div>
+    </div>
+  </div>
+
+  <!-- Photo Details Section -->
+  <div class="photo-details">
+    <!-- Editable Photo Name -->
+    <input 
+      type="text" 
+      class="photo-title-input"
+      [(ngModel)]="photoName"
+      placeholder="Enter photo name">
+    
+    <p class="photo-date">{{ photoDate }}</p>
+    
+    <!-- Editable Caption -->
+    <textarea 
+      class="photo-caption-input"
+      [(ngModel)]="photoCaption"
+      placeholder="Enter photo caption"
+      rows="3"></textarea>
+    
+    <!-- Privacy Settings (similar to UploadPhotoComponent) -->
+    <div class="privacy-settings">
+      <p class="privacy-title">Choose how your pictures are used on this platform.</p>
+      
+      <div class="checkbox-group">
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            [(ngModel)]="onlyYouCanView"
+            (change)="onOnlyYouCanViewChange()"
+            class="checkbox-input">
+          <span class="checkbox-text">Only you can view</span>
+        </label>
+        
+        <label class="checkbox-label">
+          <input 
+            type="checkbox" 
+            [(ngModel)]="onlyYouCanShare"
+            (change)="onOnlyYouCanShareChange()"
+            [disabled]="onlyYouCanView"
+            class="checkbox-input">
+          <span class="checkbox-text">Only you can share</span>
+        </label>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <app-button 
+        label="CANCEL"
+        (buttonClick)="onCancel()"
+        [width]="78"
+        [height]="40"
+        [fontSize]="22"
+        strokeColor="#222222"
+        backgroundColor="transparent"
+        class="cancel-button">
+      </app-button>
+      
+      <app-button 
+        label="SAVE CHANGES"
+        (buttonClick)="onSaveChanges()"
+        [width]="165"
+        [height]="40"
+        [fontSize]="22"
+        strokeColor="#ffffff"
+        backgroundColor="#8C8C8C"
+        class="save-button">
+      </app-button>
+    </div>
+  </div>
+</div>
