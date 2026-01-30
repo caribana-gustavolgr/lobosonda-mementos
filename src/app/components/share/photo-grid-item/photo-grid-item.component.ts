@@ -40,4 +40,48 @@ export class PhotoGridItemComponent {
     event.stopPropagation();
     this.deleteClicked.emit(this.photoId);
   }
+
+  /**
+   * Truncate title to maximum 20 characters
+   */
+  get truncatedTitle(): string {
+    if (!this.title) return '';
+    return this.title.length > 20 ? this.title.substring(0, 20) + '...' : this.title;
+  }
+
+  /**
+   * Format date to more readable format
+   * Example: "2023-04-21T13:53:00Z" -> "April 21st, 2023"
+   */
+  get formattedDate(): string {
+    if (!this.date) return '';
+    
+    try {
+      const date = new Date(this.date);
+      const months = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+      
+      const month = months[date.getMonth()];
+      const day = date.getDate();
+      const year = date.getFullYear();
+      
+      // Add ordinal suffix (1st, 2nd, 3rd, 4th, etc.)
+      const getOrdinalSuffix = (n: number) => {
+        if (n > 3 && n < 21) return 'th';
+        switch (n % 10) {
+          case 1: return 'st';
+          case 2: return 'nd';
+          case 3: return 'rd';
+          default: return 'th';
+        }
+      };
+      
+      return `${month} ${day}${getOrdinalSuffix(day)}, ${year}`;
+    } catch (error) {
+      console.error('Error formatting date:', error);
+      return this.date; // Return original string if formatting fails
+    }
+  }
 }

@@ -10,7 +10,8 @@ import { MyTripsComponent } from './components/my-trips/my-trips.component';
 export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'trip', component: TripComponent },
+    { path: 'trip/:id', component: TripComponent },
+    { path: 'trip', component: TripComponent }, // Keep for backward compatibility
     { path: 'photo-gallery', component: ExpeditionPhotogalleryComponent },
     { path: 'photo-detail', component: PhotodetailComponent }, //TODO
     { path: 'my-trips', component: MyTripsComponent },

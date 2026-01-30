@@ -18,7 +18,7 @@
             <span class="navigation-item-selected">TOUR DETAILS</span>
           </div>
           <!-- Segunda línea: flecha + navegación anterior -->
-          <div class="navigation-back-line">
+          <div class="navigation-back-line" (click)="onBackToTrips()" style="cursor: pointer;">
             <app-arrows-chevron-left class="arrows-chevron-left-sm" color="white"></app-arrows-chevron-left>
             <span class="navigation-item">CHANGE TOUR</span>
           </div>
@@ -28,9 +28,8 @@
     
     <!-- Título central -->
     <div class="top-banner-content">
-      <span class="top-banner-title" id="trip-name">Name of the TOUR as
-        determined by the Guide</span>
-      <span class="text-24-april-2025_2288-247">24 April 2025</span>
+      <span class="top-banner-title" id="trip-name">{{ tripName }}</span>
+      <span class="text-24-april-2025_2288-247">{{ tripDate }} at {{ tripTime }}</span>
     </div>
     
     <!-- Botón inferior -->
@@ -46,35 +45,35 @@
 
   <div class="trip-details-container" id="trip-details">
     <span class="trip-details-title">Your tour on</span>
-    <div class="temperature_2284-311">
+    <div class="capsule-trip-temperature">
       <img src="assets/svgs/things_brightness.svg" alt="Things Brightness" class="trip-icons">
-      <span class="trip-info">27 C, 60 mph</span>
+      <span class="trip-info">{{ tripTemp }}, {{ tripWind }}</span>
     </div>
     <div class="time_2284-316">
       <img src="assets/svgs/calendar_alt.svg" alt="Calendar Alt" class="trip-icons">
-      <span class="text-24-april-2025_2284-317">24 April 2025</span>
+      <span class="capsule-trip-date">{{ tripDate }}</span>
     </div>
     <div class="time_2284-319">
-      <span class="text-ribeira-brava_2284-320">Ribeira Brava</span>
+      <span class="text-ribeira-brava_2284-320">{{ tripBoat }}</span>
     </div>
     <div class="place_2284-321">
       <img src="../../assets/svgs/map_marker.svg" alt="map marker" class="trip-icons">
-      <span class="trip-info">Calheta, Madeira</span>
+      <span class="trip-info">Guide: {{ tripGuide }}</span>
     </div>
     <div class="ribeira-brava_2284-324">
       <img src="assets/svgs/ribeiraBrava.svg" alt="Ribeira Brava" width="124">
     </div>
     <div class="group-35_2288-249">
       <img src="assets/svgs/clock.svg" alt="Clock" class="trip-icons">
-      <span class="trip-info">9:30 am</span>
+      <span class="trip-info">{{ tripTime }}</span>
     </div>
   </div>
 
   <div class="sightings-container" id="sightings">
     <h2 class="sightings-title">Our Sightings</h2>
     <div class="sightings-grid">
-      <app-sighting-row *ngFor="let sighting of sightings" [speciesName]="sighting.speciesName"
-        [speciesDescription]="sighting.speciesDescription" [speciesIcon]="sighting.speciesIcon">
+      <app-sighting-row *ngFor="let sighting of sightings" [speciesName]="sighting.specieName"
+        [speciesDescription]="sighting.specieDescription" [speciesIcon]="'assets/svgs/dolphin.svg'">
       </app-sighting-row>
     </div>
   </div>

@@ -8,11 +8,14 @@ import {
   sendPasswordResetEmail,
   updateProfile,
   onAuthStateChanged,
-  UserCredential
+  UserCredential,
+  getIdToken
 } from '@angular/fire/auth';
 import { doc, setDoc, getDoc, Firestore } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable, from, of, throwError } from 'rxjs';
 import { map, catchError, switchMap, tap } from 'rxjs/operators';
+import { BackendService } from './backend.service';
+import { SessionInfo } from '../interfaces/capsule.interface';
 
 export interface User {
   uid: string;
@@ -28,6 +31,7 @@ export interface User {
 export class AuthService {
   private auth = inject(Auth);
   private firestore = inject(Firestore);
+  private backend = inject(BackendService);
   private currentUserSubject = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSubject.asObservable();
 
@@ -82,6 +86,174 @@ export class AuthService {
       catchError((error) => {
         console.error('Registration error:', error);
         return throwError(() => this.getAuthError(error.code));
+      })
+    );
+  }
+
+  /**
+   * Register user in backend after Firebase registration
+   * @param email User's email
+   * @param collectionId Collection ID for invitation
+   * @param name User first name
+   * @param lastname User last name
+   * @returns Observable with backend user creation result
+   */
+  registerBackend(
+    email: string, 
+    collectionId: string, 
+    name: string, 
+    lastname: string
+  ): Observable<any> {
+    // Wait for auth state to be updated and then get token
+    return new Observable<string>(observer => {
+      const checkUserAndGetToken = () => {
+        const user = this.auth.currentUser;
+        console.log('Current user:', user);
+        
+        if (user) {
+          console.log('User found, getting ID token...');
+          // Force token refresh to get a fresh token
+          user.getIdToken(true).then(firebaseToken => {
+            console.log('Firebase token obtained:', firebaseToken ? 'Token exists' : 'No token');
+            console.log('Token length:', firebaseToken?.length || 0);
+            console.log('Token preview:', firebaseToken?.substring(0, 50) + '...');
+            
+            if (!firebaseToken || firebaseToken.length < 100) {
+              observer.error('Invalid Firebase token: Token is too short or empty');
+              return;
+            }
+            
+            observer.next(firebaseToken);
+            observer.complete();
+          }).catch((error: any) => {
+            console.error('Failed to get Firebase token:', error);
+            observer.error('Failed to get Firebase token: ' + error.message);
+          });
+        } else {
+          console.log('User not found, waiting...');
+          // Wait a bit and check again
+          setTimeout(checkUserAndGetToken, 100);
+        }
+      };
+      
+      checkUserAndGetToken();
+    }).pipe(
+      switchMap((firebaseToken: string) => {
+        console.log('Calling backend signup with token...');
+        // Pass Firebase token as authorization token
+        return this.backend.signup(firebaseToken, email, collectionId, name, lastname, firebaseToken);
+      }),
+      catchError((error) => {
+        console.error('Backend registration error:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  /**
+   * Sign in user with backend (complement to Firebase auth)
+   * @param email User's email
+   * @param password User's password (optional)
+   * @returns Observable with backend authentication result
+   */
+  signinBackend(email: string, password?: string): Observable<any> {
+    // Wait for auth state to be updated and then get token
+    return new Observable<string>(observer => {
+      const checkUserAndGetToken = () => {
+        const user = this.auth.currentUser;
+        console.log('SigninBackend - Current user:', user);
+        
+        if (user) {
+          console.log('SigninBackend - User found, getting ID token...');
+          // Force token refresh to get a fresh token
+          user.getIdToken(true).then(firebaseToken => {
+            console.log('SigninBackend - Firebase token obtained:', firebaseToken ? 'Token exists' : 'No token');
+            console.log('SigninBackend - Token length:', firebaseToken?.length || 0);
+            
+            if (!firebaseToken || firebaseToken.length < 100) {
+              observer.error('Invalid Firebase token: Token is too short or empty');
+              return;
+            }
+            
+            observer.next(firebaseToken);
+            observer.complete();
+          }).catch((error: any) => {
+            console.error('SigninBackend - Failed to get Firebase token:', error);
+            observer.error('Failed to get Firebase token: ' + error.message);
+          });
+        } else {
+          console.log('SigninBackend - User not found, waiting...');
+          // Wait a bit and check again
+          setTimeout(checkUserAndGetToken, 100);
+        }
+      };
+      
+      checkUserAndGetToken();
+    }).pipe(
+      switchMap((firebaseToken: string) => {
+        console.log('SigninBackend - Calling backend signin with token...');
+        // Pass Firebase token as authorization token
+        return this.backend.signin(email, password, firebaseToken).pipe(
+          tap((backendResponse) => {
+            // Save backend user ID if available
+            if (backendResponse && backendResponse._id) {
+              localStorage.setItem('backendUserId', backendResponse._id);
+              console.log('Backend user ID saved:', backendResponse._id);
+            }
+          })
+        );
+      }),
+      catchError((error) => {
+        console.error('SigninBackend - Backend signin error:', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
+  /**
+   * Get session information from backend
+   * @returns Observable with session information
+   */
+  getSessionInfo(): Observable<SessionInfo> {
+    // Wait for auth state to be updated and then get token
+    return new Observable<string>(observer => {
+      const checkUserAndGetToken = () => {
+        const user = this.auth.currentUser;
+        console.log('GetSessionInfo - Current user:', user);
+        
+        if (user) {
+          console.log('GetSessionInfo - User found, getting ID token...');
+          // Force token refresh to get a fresh token
+          user.getIdToken(true).then(firebaseToken => {
+            console.log('GetSessionInfo - Firebase token obtained:', firebaseToken ? 'Token exists' : 'No token');
+            
+            if (!firebaseToken || firebaseToken.length < 100) {
+              observer.error('Invalid Firebase token: Token is too short or empty');
+              return;
+            }
+            
+            observer.next(firebaseToken);
+            observer.complete();
+          }).catch((error: any) => {
+            console.error('GetSessionInfo - Failed to get Firebase token:', error);
+            observer.error('Failed to get Firebase token: ' + error.message);
+          });
+        } else {
+          console.log('GetSessionInfo - User not found, waiting...');
+          // Wait a bit and check again
+          setTimeout(checkUserAndGetToken, 100);
+        }
+      };
+      
+      checkUserAndGetToken();
+    }).pipe(
+      switchMap((firebaseToken: string) => {
+        console.log('GetSessionInfo - Calling backend sessionInfo with token...');
+        return this.backend.getSessionInfo(firebaseToken);
+      }),
+      catchError((error) => {
+        console.error('GetSessionInfo - Backend sessionInfo error:', error);
+        return throwError(() => error);
       })
     );
   }

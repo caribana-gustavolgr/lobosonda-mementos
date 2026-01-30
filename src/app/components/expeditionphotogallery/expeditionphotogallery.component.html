@@ -13,9 +13,9 @@
             <span class="navigation-item-selected">PHOTO GALLERY</span>
           </div>
           <!-- Segunda línea: flecha + navegación anterior -->
-          <div class="navigation-back-line">
+          <div class="navigation-back-line" (click)="onBackToTripDetails()">
             <app-arrows-chevron-left class="arrows-chevron-left-sm" color="#222222"></app-arrows-chevron-left>
-            <span class="navigation-item">TOUR DETAILS</span>
+            <span class="navigation-item" id="backNavigation">TOUR DETAILS</span>
           </div>
         </div>
       </div>
@@ -23,9 +23,8 @@
 
     <!-- Título central -->
     <div class="top-banner-content">
-      <span class="top-banner-title">Name of the tour as determined by the
-        guide</span>
-      <span class="top-banner-info">24 April 2025</span>
+      <span class="top-banner-title" id="galleryTitle">{{ galleryTitle }}</span>
+      <span class="top-banner-info" id="galleryInfo">{{ galleryInfo }}</span>
     </div>
     <!-- Botón inferior -->
     <div class="banner-footer">
@@ -42,18 +41,26 @@
       class="gallery-info-text" id="galleryInfoText">Share your experience by uploading your photos and relive the day with
       your fellow explorers. Select a photo to share or create mementos.</span>
     
-    <div class="filter-option1">
+    <div class="filter-option1" 
+     id="internalOnly" 
+     (click)="onInternalOnlyFilter()"
+     [class.active]="activeFilter === 'internalOnly'">
       <div class="button-cancel_2285-306">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.5" y="0.5" width="11" height="11" stroke="#222222" />
+          <path d="M3 3L9 9M9 3L3 9" stroke="#222222" stroke-width="1.5" stroke-linecap="round" />
         </svg>
       </div>
       <span class="filter-option-text">Only Lobosonda images</span>
     </div>
-    <div class="filter-option1">
+    <div class="filter-option1" 
+         id="myOnly" 
+         (click)="onMyOnlyFilter()"
+         [class.active]="activeFilter === 'myOnly'">
       <div class="button-cancel_2285-311">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="0.5" y="0.5" width="11" height="11" stroke="#222222" />
+          <path d="M3 3L9 9M9 3L3 9" stroke="#222222" stroke-width="1.5" stroke-linecap="round" />
         </svg>
       </div>
       <span class="filter-option-text">Only my images</span>
@@ -61,9 +68,14 @@
   </div>
 
   <div class="gallery-grid" id="galleryGrid">
+    <!-- Show message when no photos are available -->
+    <div *ngIf="hasNoPhotos" class="no-photos-message">
+      <span>{{ noPhotosMessage }}</span>
+    </div>
+    
     <!-- Photos will be dynamically rendered here using PhotoGridItem components -->
     <app-photo-grid-item 
-      *ngFor="let photo of photos" 
+      *ngFor="let photo of transformedPhotos" 
       [imageUrl]="photo.imageUrl"
       [title]="photo.title"
       [date]="photo.date"

@@ -68,14 +68,53 @@ export class LoginComponent {
 
     const { email, password } = this.loginForm.value;
 
+    // First login with Firebase
     this.auth.login(email, password).subscribe({
       next: (user) => {
-        this.loading = false;
-        if (this.tripId) {
-          this.router.navigate(['/trip', this.tripId]);
-        } else {
-          this.router.navigate(['/trip-list']);
-        }
+        // After successful Firebase login, call backend signin
+        this.auth.signinBackend(email, password).subscribe({
+          next: (backendResponse) => {
+            this.loading = false;
+            console.log('Backend signin successful:', backendResponse);
+            
+            // Load session info and save to localStorage
+            this.auth.getSessionInfo().subscribe({
+              next: (sessionInfo: any) => {
+                console.log('Session info loaded:', sessionInfo);
+                localStorage.setItem('sessionInfo', JSON.stringify(sessionInfo));
+                
+                // Redirect to my-trips as requested
+                if (this.tripId) {
+                  this.router.navigate(['/my-trips'], { queryParams: { tripId: this.tripId } });
+                } else {
+                  this.router.navigate(['/my-trips']);
+                }
+              },
+              error: (sessionError: any) => {
+                console.error('Failed to load session info:', sessionError);
+                // Show warning but still allow access - session info is not critical
+                this.errorMessage = `Login successful but some features may be limited. You can continue, but session data could not be loaded.`;
+                
+                // Still redirect to my-trips since login was successful
+                if (this.tripId) {
+                  this.router.navigate(['/my-trips'], { queryParams: { tripId: this.tripId } });
+                } else {
+                  this.router.navigate(['/my-trips']);
+                }
+              }
+            });
+          },
+          error: (backendError) => {
+            this.loading = false;
+            console.error('Backend signin error:', backendError);
+            
+            // Show error and stay on login page - do not redirect
+            this.errorMessage = `Authentication failed: ${backendError.message || 'Backend authentication error'}. Please try again.`;
+            
+            // Remove any automatic redirect - user must stay on login page
+            // until authentication is completely successful
+          }
+        });
       },
       error: (err) => {
         this.loading = false;

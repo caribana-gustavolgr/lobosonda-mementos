@@ -3,42 +3,50 @@
     <div class="logo-container">
       <img src="assets/svgs/logo.svg" alt="Logo" class="logo">
     </div>
-    <span class="mementos-titles">HeLLO BENIGNO LUCRÉCIO!</span>
+    <span class="mementos-titles">Hello {{ userName }}!</span>
     <span class="mementos-sub-title">Which tour would you like to access?</span>
     <div class="mementos-white-content">
-      <!-- First Tour Button -->
-      <div class="mementos-tour-button">
-        <div class="rectangle-94_2284-1197"></div>
-        <div class="tour-icon">
-          <img src="assets/svgs/ribeiraBrava.svg" alt="Boat Icon" class="icon">
-        </div>
-        <div class="tour-date">
-          <span>24 April 2025</span>
-        </div>
-        <div class="tour-arrow">
-          <app-arrows-chevron-right-sm></app-arrows-chevron-right-sm>
+      
+      <!-- Loading State -->
+      <div *ngIf="loading" class="loading-state">
+        <span>Loading your trips...</span>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="error" class="error-state">
+        <span>{{ error }}</span>
+        <button (click)="loadUserTrips()" class="retry-button">Retry</button>
+      </div>
+
+      <!-- No Trips State -->
+      <div *ngIf="!loading && !error && !hasTrips" class="no-trips-state">
+        <span>You don't have any available trips yet.</span>
+      </div>
+
+      <!-- Trips List -->
+      <div *ngIf="!loading && !error && hasTrips" class="trips-list">
+        <div 
+          *ngFor="let trip of trips" 
+          class="mementos-tour-button" 
+          (click)="onTripClick(trip)">
+          <div class="rectangle-94_2284-1197"></div>
+          <div class="tour-icon">
+            <img src="assets/svgs/ribeiraBrava.svg" alt="Boat Icon" class="icon">
+          </div>
+          <div class="tour-date">
+            <span>{{ formatDate(trip.trip.tripDate) }} at {{ trip.trip.tripTime }}</span>
+          </div>
+          <div class="tour-arrow">
+            <app-arrows-chevron-right-sm></app-arrows-chevron-right-sm>
+          </div>
         </div>
       </div>
 
-      <!-- Second Tour Button -->
-      <div class="mementos-tour-button">
-        <div class="rectangle-94_2284-1223"></div>
-        <div class="tour-icon-2">
-          <img src="assets/svgs/stenella.svg" alt="Boat Icon" class="icon">
-        </div>
-        <div class="tour-date">
-          <span>07 November 2020</span>
-        </div>
-        <div class="tour-arrow">
-          <app-arrows-chevron-right-sm></app-arrows-chevron-right-sm>
-        </div>
-      </div>
       <div class="mementos-footer">
         <div class="social-media_2284-1185">
           <span class="text-email_2284-1186">Privacy Policy</span>
         </div>
       </div>
     </div>
-
   </div>
 </div>

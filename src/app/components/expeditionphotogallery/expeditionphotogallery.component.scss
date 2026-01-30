@@ -51,7 +51,7 @@
   background: #ffffff;
   width: 100%;
   height: auto;
-  padding: 40px 24px;
+  padding: 40px 9px;
   margin-top: auto;
 }
 
@@ -104,4 +104,47 @@
   box-sizing: border-box;
   width: 100%;
   height: auto;
+}
+
+// Filter active state
+.filter-option1.active {
+  background-color: #f0f0f0;
+  border-color: #222222;
+  
+  .button-cancel_2285-306,
+  .button-cancel_2285-311 {
+    background-color: #222222;
+    
+    svg {
+      rect {
+        fill: #222222;
+      }
+      path {
+        stroke: #ffffff;
+      }
+    }
+  }
+  
+  .filter-option-text {
+    color: #222222;
+    font-weight: 600;
+  }
+}
+
+// No photos message
+.no-photos-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  
+  span {
+    color: #666666;
+    font-size: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    line-height: 1.5;
+    max-width: 400px;
+  }
 }
