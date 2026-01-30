@@ -1,11 +1,29 @@
 <div class="upload-photo-container">
+  <!-- Upload Loader -->
+  <app-upload-loader 
+    [isVisible]="isLoading"
+    [message]="loadingMessage"
+    [showProgress]="false">
+  </app-upload-loader>
+
   <!-- Image Grid Section -->
   <div class="image-grid-section">
     <div class="image-grid">
+      @for (photo of selectedPhotos; track photo.filename) {
+        <div class="photo-item selected" (click)="removePhoto(photo)">
+          <img [src]="'data:' + photo.type + ';base64,' + photo.base64" 
+               [alt]="photo.filename" 
+               class="photo-thumbnail">
+          <div class="photo-overlay">
+            <span class="checkmark">✓</span>
+          </div>
+        </div>
+      }
+      
       @for (photoId of mockPhotoIds; track photoId) {
         <app-photo-from-my-phone 
-          [property1]="selectedPhotos.includes(photoId) ? 'Selected' : 'Default'"
-          (click)="onPhotoSelect(photoId)"
+          [property1]="'Default'"
+          (click)="onSelectPhotos()"
           class="photo-item">
         </app-photo-from-my-phone>
       }
@@ -65,12 +83,12 @@
       <app-button 
         label="UPLOAD ({{ selectedCount }})"
         (buttonClick)="onUpload()"
-        [disabled]="selectedCount === 0"
+        [disabled]="selectedCount === 0 || isLoading"
         [width]="159"
         [height]="40"
         [fontSize]="22"
-        [strokeColor]="selectedCount > 0 ? '#ffffff' : '#ffffff'"
-        [backgroundColor]="selectedCount > 0 ? '#222222' : '#8C8C8C'"
+        [strokeColor]="selectedCount > 0 && !isLoading ? '#ffffff' : '#ffffff'"
+        [backgroundColor]="selectedCount > 0 && !isLoading ? '#222222' : '#8C8C8C'"
         class="upload-button">
       </app-button>
     </div>

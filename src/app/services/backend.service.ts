@@ -5,6 +5,28 @@ import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { SessionInfo, UserTrips, TripDetail } from '../interfaces/capsule.interface';
 
+// Interface para el request de subida de fotos
+export interface PhotoUploadRequest {
+  file: string; // base64
+  filename: string;
+  name?: string;
+  description?: string;
+  availableForOthers: boolean;
+  availableToShare: boolean;
+}
+
+export interface UploadPhotosRequest {
+  collectionId: string;
+  photos: PhotoUploadRequest[];
+}
+
+export interface UploadPhotosResponse {
+  success: boolean;
+  message: string;
+  photos: any[];
+  collectionId: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -212,6 +234,26 @@ export class BackendService {
     console.log('Headers:', headers);
 
     return this.http.get<TripDetail>(url, { headers }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  /**
+   * Upload photos to capsule collection
+   * @param request Upload request with collection ID and photos
+   * @param token Firebase ID token for authorization
+   * @returns Observable with upload response
+   */
+  uploadPhotos(request: UploadPhotosRequest, token: string): Observable<UploadPhotosResponse> {
+    const url = this.buildUrl('capsule/photos/');
+    const headers = this.buildHeaders(token);
+
+    console.log('Backend uploadPhotos request:');
+    console.log('URL:', url);
+    console.log('Headers:', headers);
+    console.log('Request:', request);
+
+    return this.http.post<UploadPhotosResponse>(url, request, { headers }).pipe(
       catchError(this.handleError)
     );
   }

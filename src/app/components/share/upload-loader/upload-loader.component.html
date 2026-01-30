@@ -1,0 +1,21 @@
+<div *ngIf="isVisible" class="upload-loader-overlay">
+  <div class="upload-loader-container">
+    <!-- Loading Spinner -->
+    <div class="loading-spinner">
+      <div class="spinner-circle"></div>
+    </div>
+    
+    <!-- Loading Message -->
+    <div class="loading-message">
+      <p>{{ message }}</p>
+    </div>
+    
+    <!-- Progress Bar (if enabled) -->
+    <div *ngIf="showProgress" class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" [style.width.%]="progress"></div>
+      </div>
+      <div class="progress-text">{{ progressPercentage }}</div>
+    </div>
+  </div>
+</div>

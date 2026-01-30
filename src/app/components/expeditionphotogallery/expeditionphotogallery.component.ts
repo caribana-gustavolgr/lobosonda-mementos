@@ -1,12 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { CommonModule } from "@angular/common";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ChangeDetectionStrategy, Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ButtonComponent } from '../share/button/button.component';
-import { PhotoGridItemComponent } from "../share/photo-grid-item/photo-grid-item.component";
-import { ArrowsChevronLeftComponent } from "../share/arrows-chevron-left/arrows-chevron-left.component";
-import { TripDetail, Photo } from "../../interfaces/capsule.interface";
-import { AuthService } from "../../services/auth.service";
+import { PhotoGridItemComponent } from '../share/photo-grid-item/photo-grid-item.component';
+import { ArrowsChevronLeftComponent } from '../share/arrows-chevron-left/arrows-chevron-left.component';
+import { AuthService } from '../../services/auth.service';
+import { TripDetail, Photo } from '../../interfaces/capsule.interface';
+import { Subscription } from 'rxjs';
 
 // Interface para los datos de fotos
 interface PhotoData {
@@ -26,7 +27,7 @@ interface PhotoData {
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExpeditionPhotogalleryComponent implements OnInit {
+export class ExpeditionPhotogalleryComponent implements OnInit, OnDestroy {
   // Inputs para recibir datos del TripComponent
   @Input() tripData: TripDetail | null = null;
   @Input() photos: Photo[] = [];
@@ -38,6 +39,9 @@ export class ExpeditionPhotogalleryComponent implements OnInit {
   activeFilter: 'internalOnly' | 'myOnly' | null = null;
   currentUserId: string = '';
 
+  // Subscriptions management
+  private subscriptions: Subscription[] = [];
+
   constructor(private route: ActivatedRoute, private router: Router, private auth: AuthService) {}
 
   ngOnInit(): void {
@@ -45,23 +49,42 @@ export class ExpeditionPhotogalleryComponent implements OnInit {
     this.currentUserId = this.auth.getCurrentUser()?.uid || '';
     
     // Recibir datos del TripComponent a través de queryParams
-    this.route.queryParams.subscribe(params => {
-      if (params['tripData']) {
-        try {
-          const tripData = JSON.parse(params['tripData']);
-          this.tripData = tripData;
-          this.photos = tripData.collection?.photos || [];
-          // Almacenar el trip ID recibido
-          this.currentTripId = params['tripId'] || '';
-          console.log('Trip data received:', this.tripData);
-          console.log('Photos received:', this.photos);
-          console.log('Trip ID:', this.currentTripId);
-          console.log('Current User ID:', this.currentUserId);
-        } catch (error) {
-          console.error('Error parsing trip data:', error);
+    this.subscriptions.push(
+      this.route.queryParams.subscribe(params => {
+        console.log('ExpeditionPhotogallery - QueryParams:', params);
+        
+        // Check for refresh parameter
+        if (params['refresh'] === 'true') {
+          console.log('Refresh requested after upload - reloading data');
+          // Reset photos to force reload
+          this.photos = [];
+          this.photoData = [];
         }
-      }
-    });
+        
+        // Parse trip data if provided
+        if (params['tripData']) {
+          try {
+            const tripData = JSON.parse(params['tripData']);
+            this.tripData = tripData;
+            this.photos = tripData.collection?.photos || [];
+            console.log('Trip data parsed:', this.tripData);
+            console.log('Photos received:', this.photos);
+          } catch (error) {
+            console.error('Error parsing trip data:', error);
+          }
+        }
+        
+        // Store trip ID
+        this.currentTripId = params['tripId'] || '';
+        console.log('Current Trip ID:', this.currentTripId);
+        console.log('Current User ID:', this.currentUserId);
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    // Cleanup subscriptions
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   /**
@@ -139,40 +162,7 @@ export class ExpeditionPhotogalleryComponent implements OnInit {
   }
 
   // Datos de ejemplo para el grid de fotos (se sobrescribirán con los inputs)
-  photoData: PhotoData[] = [
-  //   {
-  //     id: 'photo-1',
-  //     imageUrl: 'https://storage.googleapis.com/lobosondaphotos.appspot.com/_DSC5423.JPG-thumbnail-1766405330417',
-  //     title: 'Quirico Faustino',
-  //     date: '16 April 2025 13:53',
-  //     canBePurchased: false,
-  //     isOwnPhoto: false
-  //   },
-  //   {
-  //     id: 'photo-2',
-  //     imageUrl: 'https://storage.googleapis.com/lobosondaphotos.appspot.com/_DSC5423.JPG-thumbnail-1766405330417',
-  //     title: 'Leodigisio Liuva',
-  //     date: '16 April 2025 13:53',
-  //     canBePurchased: true,
-  //     isOwnPhoto: false
-  //   },
-  //   {
-  //     id: 'photo-3',
-  //     imageUrl: 'https://storage.googleapis.com/lobosondaphotos.appspot.com/_DSC5423.JPG-thumbnail-1766405330417',
-  //     title: 'Marina Silva',
-  //     date: '16 April 2025 15:30',
-  //     canBePurchased: true,
-  //     isOwnPhoto: true
-  //   },
-  //   {
-  //     id: 'photo-4',
-  //     imageUrl: 'https://storage.googleapis.com/lobosondaphotos.appspot.com/_DSC5423.JPG-thumbnail-1766405330417',
-  //     title: 'Carlos Rodriguez',
-  //     date: '16 April 2025 16:45',
-  //     canBePurchased: false,
-  //     isOwnPhoto: true
-  //   }
-  ];
+  photoData: PhotoData[] = [];
 
   // Getters para datos dinámicos del viaje
   get galleryTitle(): string {
@@ -242,8 +232,19 @@ export class ExpeditionPhotogalleryComponent implements OnInit {
 
   onUploadPhotosClick(): void {
     console.log('Upload Photo clicked!');
-    // Aquí puedes agregar la lógica para abrir la galería de fotos
-    console.log('Test edit - funcionando correctamente');
+    
+    // Navigate to upload photo page with trip data
+    if (this.currentTripId) {
+      this.router.navigate(['/app-uploadphoto'], {
+        queryParams: {
+          tripId: this.currentTripId
+        }
+      });
+    } else {
+      console.error('No trip ID available for upload');
+      // Show error message to user
+      alert('Unable to upload photos: Trip information not available');
+    }
   }
 
   onPhotoSelected(photoId: string): void {

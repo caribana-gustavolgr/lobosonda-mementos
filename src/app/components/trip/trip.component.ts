@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, OnDestroy } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -35,7 +35,8 @@ export class TripComponent implements OnInit, OnDestroy {
     private router: Router,
     private auth: AuthService,
     private backend: BackendService,
-    private firebaseAuth: Auth
+    private firebaseAuth: Auth,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit() {
@@ -57,13 +58,17 @@ export class TripComponent implements OnInit, OnDestroy {
       if (!tripId) {
         this.error = 'Trip ID not provided';
         this.loading = false;
+        this.cdr.detectChanges(); // Forzar detección de cambios con OnPush
         return;
       }
 
-      // Get Firebase token for authentication
+      // Get Firebase user for authentication (need Firebase User for getIdToken)
       const firebaseUser = this.firebaseAuth.currentUser;
+      console.log('Current Firebase user:', firebaseUser);
+      
       if (firebaseUser) {
         firebaseUser.getIdToken(true).then((token: any) => {
+          console.log('Firebase token obtained successfully');
           if (token) {
             this.subscriptions.push(
               this.backend.getTripDetails(tripId, token).subscribe({
@@ -71,26 +76,33 @@ export class TripComponent implements OnInit, OnDestroy {
                   this.tripDetail = detail;
                   this.loading = false;
                   console.log('Trip details loaded:', detail);
+                  this.cdr.detectChanges(); // Forzar detección de cambios con OnPush
                 },
                 error: (err: any) => {
                   this.error = err.message || 'Failed to load trip details';
                   this.loading = false;
                   console.error('Error loading trip details:', err);
+                  this.cdr.detectChanges(); // Forzar detección de cambios con OnPush
                 }
               })
             );
           } else {
             this.error = 'Failed to get authentication token';
             this.loading = false;
+            console.error('No token received from Firebase');
+            this.cdr.detectChanges(); // Forzar detección de cambios con OnPush
           }
         }).catch((err: any) => {
           this.error = 'Failed to get authentication token';
           this.loading = false;
-          console.error('Error getting token:', err);
+          console.error('Error getting Firebase token:', err);
+          this.cdr.detectChanges(); // Forzar detección de cambios con OnPush
         });
       } else {
-        this.error = 'No Firebase user authenticated';
+        this.error = 'No user authenticated';
         this.loading = false;
+        console.error('No Firebase user found - user may not be properly authenticated');
+        this.cdr.detectChanges(); // Forzar detección de cambios con OnPush
       }
     });
   }
