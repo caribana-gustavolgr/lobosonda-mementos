@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, OnDestroy } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input, OnInit, OnDestroy, ChangeDetectorRef } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { PhotoFromMyPhoneComponent } from "../photo-from-my-phone/photo-from-my-phone.component";
@@ -41,7 +41,8 @@ export class UploadphotoComponent implements OnInit, OnDestroy {
     private photoPicker: PhotoPickerService,
     private backend: BackendService,
     private auth: AuthService,
-    private firebaseAuth: Auth
+    private firebaseAuth: Auth,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -60,36 +61,52 @@ export class UploadphotoComponent implements OnInit, OnDestroy {
 
   // Open photo picker to select photos from device
   onSelectPhotos(): void {
+    console.log('Opening photo picker...');
+    
     this.photoPicker.selectPhotos(true).subscribe({
       next: (photos: PhotoFile[]) => {
         console.log('Photos selected:', photos);
         this.selectedPhotos = [...this.selectedPhotos, ...photos];
+        console.log('Total selected photos:', this.selectedPhotos.length);
+        
+        // Forzar detección de cambios para actualizar el UI
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Error selecting photos:', error);
+        alert('Failed to select photos. Please try again.');
       }
     });
   }
 
   // Take photo with camera
   onTakePhoto(): void {
+    console.log('Opening camera...');
+    
     this.photoPicker.takePhoto().subscribe({
       next: (photo: PhotoFile) => {
         console.log('Photo taken:', photo);
         this.selectedPhotos.push(photo);
+        console.log('Total selected photos:', this.selectedPhotos.length);
+        
+        // Forzar detección de cambios para actualizar el UI
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('Error taking photo:', error);
+        alert('Failed to take photo. Please try again.');
       }
     });
   }
 
   // Remove selected photo
-  removePhoto(photo: PhotoFile): void {
-    const index = this.selectedPhotos.indexOf(photo);
-    if (index > -1) {
-      this.selectedPhotos.splice(index, 1);
-    }
+  removePhoto(photoToRemove: PhotoFile): void {
+    console.log('Removing photo:', photoToRemove.filename);
+    this.selectedPhotos = this.selectedPhotos.filter(photo => photo.filename !== photoToRemove.filename);
+    console.log('Remaining photos:', this.selectedPhotos.length);
+    
+    // Forzar detección de cambios para actualizar el UI
+    this.cdr.detectChanges();
   }
 
   onOnlyYouCanViewChange(): void {
@@ -192,6 +209,7 @@ export class UploadphotoComponent implements OnInit, OnDestroy {
     console.log('Navigate to Terms & Conditions');
   }
 
+  // Getters for template
   get selectedCount(): number {
     return this.selectedPhotos.length;
   }

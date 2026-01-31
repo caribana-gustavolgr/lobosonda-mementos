@@ -218,14 +218,25 @@ export class ExpeditionPhotogalleryComponent implements OnInit, OnDestroy {
     const photosToTransform = this.filteredPhotos; // Use filtered photos instead of all photos
     
     if (photosToTransform && photosToTransform.length > 0) {
-      return photosToTransform.map((photo, index) => ({
-        id: photo._id || `photo-${index}`,
-        imageUrl: photo.thumbnail || photo.edited || '',
-        title: photo.name || `Photo ${index + 1}`,
-        date: new Date().toISOString(), // Photo no tiene createdAt, usamos fecha actual
-        canBePurchased: photo.availableForOthers || false,
-        isOwnPhoto: photo.availableToShare || false
-      }));
+      return photosToTransform.map((photo, index) => {
+        // Determinar si es foto propia (CAPSULE) o estándar (STANDARD)
+        const isOwnPhoto = photo.type === 'CAPSULE' && 
+                          photo.author && 
+                          photo.author._id === this.currentUserId;
+        
+        // Fotos STANDARD (no propias) se pueden comprar
+        const canBePurchased = photo.type === 'STANDARD' && 
+                              photo.availableForOthers;
+        
+        return {
+          id: photo._id || `photo-${index}`,
+          imageUrl: photo.thumbnail || photo.edited || '',
+          title: photo.name || `Photo ${index + 1}`,
+          date: new Date().toISOString(), // Photo no tiene createdAt, usamos fecha actual
+          canBePurchased: canBePurchased,
+          isOwnPhoto: isOwnPhoto
+        };
+      });
     }
     return this.photoData; // Fallback a datos de ejemplo
   }

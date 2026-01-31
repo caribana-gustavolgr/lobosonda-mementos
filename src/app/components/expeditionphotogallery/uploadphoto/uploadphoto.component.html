@@ -37,8 +37,11 @@
       <input 
         type="text" 
         [(ngModel)]="caption"
-        placeholder="Add a caption or description..."
+        placeholder="Add a caption or description (optional)..."
         class="caption-field">
+      <div class="caption-hint">
+        <span class="hint-text">Caption is optional - you can upload photos without it</span>
+      </div>
     </div>
 
     <!-- Privacy Settings -->
