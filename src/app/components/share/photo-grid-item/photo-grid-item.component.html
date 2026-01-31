@@ -13,8 +13,21 @@
     <img src="assets/svgs/shopping_cart.svg" alt="Shopping Cart" width="40" height="40">
   </div>
 
-  <!-- Action buttons for own photos -->
-  <div *ngIf="isOwnPhoto" class="photo-actions">
+  <!-- Action indicator and buttons for own photos -->
+  <div *ngIf="isOwnPhoto" class="photo-actions-container">
+    <!-- Three dots indicator (trigger for overlay) -->
+    <div #actionsTrigger 
+         class="actions-indicator" 
+         (click)="onToggleActions($event)" 
+         [class.active]="isOverlayOpen">
+      <span class="dots-icon">⋯</span>
+    </div>
+  </div>
+</div>
+
+<!-- Template for the overlay actions -->
+<ng-template #actionsTemplate>
+  <div class="actions-overlay">
     <button class="action-button edit-button" (click)="onEditClick($event)" title="Edit photo">
       <img src="assets/svgs/edit.svg" alt="Edit" width="20" height="20">
     </button>
@@ -22,4 +35,4 @@
       <img src="assets/svgs/trash.svg" alt="Delete" width="20" height="20">
     </button>
   </div>
-</div>
+</ng-template>

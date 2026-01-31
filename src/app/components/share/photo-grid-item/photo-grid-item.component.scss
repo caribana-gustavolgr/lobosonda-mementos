@@ -86,6 +86,85 @@
   right: 8px;
   display: flex;
   gap: 4px;
+  opacity: 0;
+  transform: scale(0.8) translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  
+  &.visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+  }
+}
+
+.photo-actions-container {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.actions-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  &.active {
+    background: #222222;
+    
+    .dots-icon {
+      color: white;
+    }
+  }
+}
+
+.dots-icon {
+  font-size: 18px;
+  color: #222222;
+  font-weight: bold;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+// CDK Overlay styles
+.actions-overlay {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
+  animation: overlaySlideIn 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes overlaySlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Transparent backdrop for CDK overlay
+.cdk-overlay-transparent-backdrop {
+  background: transparent;
 }
 
 .action-button {
